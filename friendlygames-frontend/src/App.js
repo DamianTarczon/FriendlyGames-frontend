@@ -1,4 +1,4 @@
-import Navbar from "./Navbar.js"
+import Navbar from "./components/Navbar.js"
 import React from 'react';
 
 export default function App() {
