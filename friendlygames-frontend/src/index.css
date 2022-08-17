@@ -1,14 +1,8 @@
 body {
   font-family: "Inter";
+  letter-spacing: 5%;
+  font-style: normal;
 }
-
-
-/* nav {
-  display: flex;
-  align-items: center;
-  background-color: #D9D9D9;
-  position: relative;
-} */
 
 nav {
   padding: 0;
@@ -21,7 +15,6 @@ nav {
   height: 10%;
   left: 0px;
   top: 0px;
-
   background: #EBEBEB;
   border-radius: 5px; 
 }
@@ -30,36 +23,28 @@ nav {
   position: absolute;
   left: 3.4%;
   right: 69.79%;
-
   text-align: left;
   vertical-align: top;
-  letter-spacing: 5%;
-  font-family: 'Inter';
-  font-style: normal;
   font-weight: 900;
   font-size: 30px;
-
   color: #2B355A;
 }
 
-
-
 .login {
   position: absolute;
-width: 10%;
-height: 10%;
-left: 85%;
-top: 12%;
-font-style: normal;
-font-weight: 300;
-font-size: 18px;
-line-height: 29px;
-/* identical to box height  */
-color: #000000;
+  width: 10%;
+  height: 10%;
+  left: 85%;
+  top: 12%;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 20px;
+  line-height: 29px;
+  color: #000000;
+  font-weight: bold;
 }
 
 .register{
-
   position: absolute;
   width: 10%;
   height: 100%;
@@ -67,27 +52,24 @@ color: #000000;
   top: 12%;
   font-style: normal;
   font-weight: 300;
-  font-size: 18px;
+  font-size: 20px;
   line-height: 29px;
-  /* identical to box height */
+  font-weight: bold;
 }
 
 .searching--bar {
   box-sizing: border-box;
-
   position: absolute;
   left: 40%;
   right: 40%;
   top: 20%;
   bottom: 20%;
-
   background: #FFFFFF;
   border: 1px solid #8F8F8F;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 30px;
   padding: 15px;
   text-align: left;
-  /* margin: 4px 2px; */
 } 
 
 .button--where, .button--when {
@@ -101,25 +83,22 @@ color: #000000;
 }
 
 .loop {
-position:absolute;
-left: 57%;
-right: 41%;
-top: 30%;
-bottom: 30%;
-border-radius: 50%;
-
-background: #2B355A;
+  position:absolute;
+  left: 57%;
+  right: 41%;
+  top: 30%;
+  bottom: 30%;
+  border-radius: 50%;
+  background: #2B355A;
 }
 
 .circle-loop {
   box-sizing: border-box;
-
   position: absolute;
   left: 20%;
   right: 45%;
   top: 20%;
   bottom: 45%;
-
   border-radius: 50%;
   border: 1px solid #FFFFFF;
   transform: rotate(3.07deg);
@@ -127,32 +106,13 @@ background: #2B355A;
 
 .circle-line {
   position: absolute;
-left: 45.5%;
-right: 20.25%;
-top: 58.34%;
-bottom: 60.66%;
-
-border: 0.5px solid #FFFFFF;
-transform: rotate(37.87deg);
+  left: 45.5%;
+  right: 20.25%;
+  top: 58.34%;
+  bottom: 60.66%;
+  border: 0.5px solid #FFFFFF;
+  transform: rotate(37.87deg);
 }
-
-/* .app--name {
-  position: relative;
-  vertical-align: middle;
-  margin-left: 30px;
-  display: inline-flex;
-}
-
-.searching--bar {
-  transform-origin: 50% 0%;
-  margin: 0 auto;
-}
-
-.login, .register {
-  display: flex;
-  position: relative;
-  margin: 30px;
-} */
 
 .searchbar {
   display: flex;
