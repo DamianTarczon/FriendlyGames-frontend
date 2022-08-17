@@ -21,7 +21,6 @@ nav {
   height: 10%;
   left: 0px;
   top: 0px;
-
   background: #EBEBEB;
   border-radius: 5px; 
 }
@@ -136,28 +135,12 @@ border: 0.5px solid #FFFFFF;
 transform: rotate(37.87deg);
 }
 
-/* .app--name {
-  position: relative;
-  vertical-align: middle;
-  margin-left: 30px;
-  display: inline-flex;
-}
-
-.searching--bar {
-  transform-origin: 50% 0%;
-  margin: 0 auto;
-}
-
-.login, .register {
-  display: flex;
-  position: relative;
-  margin: 30px;
-} */
 
 .searchbar {
   display: flex;
   align-items: center;
   height: 100px;
+  padding-top: 6%;
 }
 
 .left--arrow, .right--arrow {
@@ -167,26 +150,31 @@ transform: rotate(37.87deg);
   height: 50px;
   width: 60px;
   background-color: white;
+  border-style: none;
 }
 
 .searchingCard {
   width: 95%;
+  text-align: center;
 }
 
 .card--image{
   margin-top: 35px;
-  width: 4%;
+  width: 50%;
 }
 
-.left--arrow--img{
+.left--arrow--img {
   width: 100%;
-  background-color: white;
-  border: none;
-  padding: 20px;
+}
+
+.right--arrow--img {
+  width: 100%;
+}
+
+.card--container{
   text-align: center;
-  text-decoration: none;
-  font-size: 16px;
-  margin: 4px 2px;
-  display: block;
-  border-radius: 40%;
+  width: 6%;
+  display: inline-block;
+  padding-right: 50px;
+  padding-left: 50px;
 }
