@@ -1,14 +1,9 @@
 body {
   font-family: "Inter";
+  letter-spacing: 5%;
+  font-style: normal;
+  color: black;
 }
-
-
-/* nav {
-  display: flex;
-  align-items: center;
-  background-color: #D9D9D9;
-  position: relative;
-} */
 
 nav {
   padding: 0;
@@ -29,36 +24,28 @@ nav {
   position: absolute;
   left: 3.4%;
   right: 69.79%;
-
   text-align: left;
   vertical-align: top;
-  letter-spacing: 5%;
-  font-family: 'Inter';
-  font-style: normal;
   font-weight: 900;
   font-size: 30px;
-
   color: #2B355A;
 }
 
-
-
 .login {
   position: absolute;
-width: 10%;
-height: 10%;
-left: 85%;
-top: 12%;
-font-style: normal;
-font-weight: 300;
-font-size: 18px;
-line-height: 29px;
-/* identical to box height  */
-color: #000000;
+  width: 10%;
+  height: 10%;
+  left: 85%;
+  top: 12%;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 20px;
+  line-height: 29px;
+  color: #000000;
+  font-weight: bold;
 }
 
 .register{
-
   position: absolute;
   width: 10%;
   height: 100%;
@@ -66,27 +53,24 @@ color: #000000;
   top: 12%;
   font-style: normal;
   font-weight: 300;
-  font-size: 18px;
+  font-size: 20px;
   line-height: 29px;
-  /* identical to box height */
+  font-weight: bold;
 }
 
 .searching--bar {
   box-sizing: border-box;
-
   position: absolute;
   left: 40%;
   right: 40%;
   top: 20%;
   bottom: 20%;
-
   background: #FFFFFF;
   border: 1px solid #8F8F8F;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 30px;
   padding: 15px;
   text-align: left;
-  /* margin: 4px 2px; */
 } 
 
 .button--where, .button--when {
@@ -100,25 +84,22 @@ color: #000000;
 }
 
 .loop {
-position:absolute;
-left: 57%;
-right: 41%;
-top: 30%;
-bottom: 30%;
-border-radius: 50%;
-
-background: #2B355A;
+  position:absolute;
+  left: 57%;
+  right: 41%;
+  top: 30%;
+  bottom: 30%;
+  border-radius: 50%;
+  background: #2B355A;
 }
 
 .circle-loop {
   box-sizing: border-box;
-
   position: absolute;
   left: 20%;
   right: 45%;
   top: 20%;
   bottom: 45%;
-
   border-radius: 50%;
   border: 1px solid #FFFFFF;
   transform: rotate(3.07deg);
@@ -126,15 +107,13 @@ background: #2B355A;
 
 .circle-line {
   position: absolute;
-left: 45.5%;
-right: 20.25%;
-top: 58.34%;
-bottom: 60.66%;
-
-border: 0.5px solid #FFFFFF;
-transform: rotate(37.87deg);
+  left: 45.5%;
+  right: 20.25%;
+  top: 58.34%;
+  bottom: 60.66%;
+  border: 0.5px solid #FFFFFF;
+  transform: rotate(37.87deg);
 }
-
 
 .searchbar {
   display: flex;
@@ -173,8 +152,185 @@ transform: rotate(37.87deg);
 
 .card--container{
   text-align: center;
-  width: 6%;
+  text-decoration: none;
+  font-size: 16px;
+  margin: 4px 2px;
+  display: block;
+  border-radius: 40%;
+}
+
+.rect-1 {
+position: absolute;
+width: 100%;;
+height: 279px;
+left: 0px;
+top: 20%;
+
+background: #2B355A;
+}
+
+.rect-3 {
+  position: absolute;
+  width: 100%;
+  height: 279px;
+  left: 0px;
+  top: 80%;
+  
+  background: #2B355A;
+  }
+
+.rect-1-writing{
+  position: absolute;
+left: 13%;
+top: 32%;
+
+font-family: 'Inter';
+font-weight: 500;
+font-size: 32px;
+line-height: 39px;
+text-align: center;
+
+color: #ffffff;
+}
+
+.rect-2-writing{
+position: absolute;
+left: 40%;
+top: 60%;
+
+font-family: 'Inter';
+font-weight: 800;
+font-size: 32px;
+line-height: 39px;
+text-align: center;
+
+color: #000000;
+}
+
+.rect-3-writing{
+  position: absolute;
+left: 13%;
+top: 24%;
+
+font-family: 'Inter';
+font-weight: 500;
+font-size: 32px;
+line-height: 39px;
+text-align: center;
+
+color: #ffffff;
+}
+
+.rect-4-writing{
+  position: absolute;
+left: 13%;
+top: 40%;
+
+font-family: 'Inter';
+font-weight: 500;
+font-size: 32px;
+line-height: 39px;
+text-align: center;
+
+color: #ffffff;
+}
+
+.rect-5-writing{
+  position: absolute;
+left: 13%;
+top: 56%;
+
+font-family: 'Inter';
+font-weight: 500;
+font-size: 32px;
+line-height: 39px;
+text-align: center;
+
+color: #ffffff;
+}
+
+.man-with-ball{
+position:absolute;
+top: 5%;
+left: 50%;
+width: 60%;
+background-size: cover;
+-webkit-background-size: cover;
+-moz-background-size: cover;
+-o-background-size: cover;
+background-size: cover;
+}
+
+.vol-players{
+  position:absolute;
+  top: 5%;
+  left: 61%;
+  width: 40%;
+  height: auto;
+  }
+
+
+.footer {
+  position: bottom;
+  width: 100%;
+  height: 100px;
+  left: 0%;
+  right: 0%;
+  bottom: -50%;
+  text-align: center;
+  background-color: #D9D9D9;
   display: inline-block;
-  padding-right: 50px;
-  padding-left: 50px;
+}
+
+.footer--button {
+  display: inline-block;
+  padding: 20px;
+  background-color: #D9D9D9;
+  border: none;
+  font-size: 16px;
+  margin: 4px 90px;
+}
+
+.footer--hr {
+  height: 2px;
+  color: black;
+  background-color: gray;
+  width: 95%;
+  margin-top: -4px;
+}
+
+.registrationPage {
+  background-color: #f3eded;
+}
+
+.registration--image {
+  margin-top: -25%;
+  margin-left: -38%;
+  zoom: 1.3;
+}
+
+.registration--data {
+  position: absolute;
+  margin-left: 1150px;
+  margin-top: -1250px;
+  font-weight: bold;
+  font-size: 25px;
+  text-align: center;
+}
+
+.input {
+  line-height: 2;
+  width: 400px;
+}
+
+.registration--button {
+  display: inline-block;
+  width: 300px;
+  height: 40px;
+  border: 1px solid #8F8F8F;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 30px;
+  background: #2B355A;
+  color: white;
+  font-size: 20px;
 }
