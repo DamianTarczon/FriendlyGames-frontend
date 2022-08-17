@@ -12,54 +12,183 @@ code {
     monospace;
 }
 
+/* nav {
+  display: flex;
+  align-items: center;
+  background-color: #D9D9D9;
+  position: relative;
+} */
+
 nav {
   display: flex;
   align-items: center;
   background-color: #D9D9D9;
-  /* position: absolute;
-  width: 1920px;
-  height: 158px;
+  position: absolute;
+  width: 100%;
+  height: 10%;
   left: 0px;
   top: 0px;
 
   background: #EBEBEB;
-  border-radius: 5px; */
+  border-radius: 5px; 
 }
 
 .app--name {
-  margin-right: auto;
-}
-
-/* .app--name {
   position: absolute;
   left: 3.4%;
   right: 69.79%;
-  top: 1.34%;
-  bottom: 95.76%;
+  margin-right: auto;
+  text-align: left;
+  vertical-align: top;
+  letter-spacing: 5%;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 900;
+  font-size: 30px;
+  line-height: 58px;
+
+  color: #2B355A;
+}
+
+.login {
+  position: absolute;
+width: 10%;
+height: 10%;
+left: 85%;
+top: 12%;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 300;
+font-size: 18px;
+line-height: 29px;
+/* identical to box height  */
+color: #000000;
+}
+
+.register{
+
+  position: absolute;
+  width: 10%;
+  height: 100%;
+  left: 78%;
+  top: 12%;
 
   font-family: 'Inter';
   font-style: normal;
-  font-weight: 800;
-  font-size: 48px;
-  line-height: 58px;
-  letter-spacing: 0.05em;
-
-  color: #2B355A;
+  font-weight: 300;
+  font-size: 18px;
+  line-height: 29px;
+  /* identical to box height */
 }
 
 .searching--bar {
   box-sizing: border-box;
 
   position: absolute;
-  left: 30%;
-  right: 30%;
-  top: 9.71%;
-  bottom: 4.85%;
+  left: 40%;
+  right: 40%;
+  top: 20%;
+  bottom: 20%;
 
   background: #FFFFFF;
   border: 1px solid #8F8F8F;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  border-radius: 50px;
+  border-radius: 30px;
+  padding: 15px;
+  text-align: left;
+  /* margin: 4px 2px; */
+} 
+
+.button--where, .button--when {
+  background-color: white;
+  border-radius: 25%;
+  border-color: white;
+  border: none;
+  font-size: 18px;
+  font-weight: bold;
+  margin-left: 10%;
+}
+
+.loop {
+position:absolute;
+left: 57%;
+right: 41%;
+top: 30%;
+bottom: 30%;
+border-radius: 50%;
+
+background: #2B355A;
+}
+
+.circle-loop {
+  box-sizing: border-box;
+
+  position: absolute;
+  left: 20%;
+  right: 45%;
+  top: 20%;
+  bottom: 45%;
+
+  border-radius: 50%;
+  border: 1px solid #FFFFFF;
+  transform: rotate(3.07deg);
+}
+
+.circle-line {
+  position: absolute;
+left: 45.5%;
+right: 20.25%;
+top: 58.34%;
+bottom: 60.66%;
+
+border: 0.5px solid #FFFFFF;
+transform: rotate(37.87deg);
+}
+
+/* .app--name {
+  position: relative;
+  vertical-align: middle;
+  margin-left: 30px;
+  display: inline-flex;
+}
+
+.searching--bar {
+  transform-origin: 50% 0%;
+  margin: 0 auto;
+}
+
+.login, .register {
+  display: flex;
+  position: relative;
+  margin: 30px;
 } */
 
+.searchbar {
+  display: flex;
+  align-items: center;
+  height: 100px;
+}
+
+.left--arrow, .right--arrow {
+  margin-left: 80px;
+  margin-right: 80px;
+  border-radius: 50%;
+  height: 50px;
+  width: 60px;
+  background-color: white;
+}
+
+.searchingCard {
+  width: 95%;
+}
+
+.card--image{
+  margin-top: 35px;
+  width: 4%;
+}
+
+.left--arrow--img{
+  width: 100%;
+}
 
