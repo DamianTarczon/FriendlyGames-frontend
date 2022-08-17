@@ -1,7 +1,7 @@
-import Navbar from "./components/Navbar.js"
+import Navbar from "./components/Navbar.js";
 import React from 'react';
 import Searchbar from "./components/Searchbar.js";
-import MainView from "./components/Mainview.js";
+import Footer from "./components/Footer.js";
 
 export default function App() {
   return (
@@ -9,6 +9,7 @@ export default function App() {
       <Navbar />
       <Searchbar />
       <MainView />
+      <Footer />
     </div>
   );
 }
