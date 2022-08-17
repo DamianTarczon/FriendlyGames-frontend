@@ -2,7 +2,7 @@ import React from "react";
 
 export default function Navbar(){
     return (
-        <nav>
+        <nav className="navbar">
             <h2 className="app--name">friendlygames</h2>
             <div className="searching--bar">
                 <button type="button" className="button--where" >Gdziekolwiek</button>
