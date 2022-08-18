@@ -2,9 +2,7 @@ import React from "react";
 import SearchingCard from "./SearchingCard";
 import data from "../data.js";
 
-
 export default function Searchbar(){
-
 
     const [firstIndexOfCardToShow, setFirstIndexOfCardToShow] = React.useState(0)
     const [lastIndexOfCardToShow, setLastIndexOfCardToShow] = React.useState(7)

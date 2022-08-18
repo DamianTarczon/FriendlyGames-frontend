@@ -8,7 +8,6 @@ export default function Footer(){
             <button className="footer--button">Polityka prywatności</button>
             <button className="footer--button">Kontakt</button>
             <button className="footer--button"><b>friendlygames</b></button>
-            <hr className="footer--hr"></hr>
         </div>
     )
 }

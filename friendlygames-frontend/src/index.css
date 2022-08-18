@@ -1,6 +1,11 @@
 body {
+  font-family: "Inter";
+  letter-spacing: 5%;
+  font-style: normal;
+  color: black;
   margin: 0;
 }
+
 
 /* Navbar section START */
 .navbar {
@@ -36,7 +41,8 @@ body {
 }
 /* Navbar section END */
 
-/* Searchingbar for events START */
+
+/* Searching bar for events START */
 .searchbar {
   display: flex;
   align-items: center;
@@ -75,4 +81,65 @@ body {
   padding-right: 50px;
   padding-left: 50px;
 } 
-/* Searchbar for events END */
+/* Searching bar for events END */
+
+
+/*Footer START*/ 
+.footer {
+  position: relative;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 5rem;
+  background-color: #D9D9D9;
+}
+
+.footer--button {
+  display: inline-block;
+  padding: 10px;
+  font-size: 16px;
+  margin: 0 auto;
+}
+/*Footer END*/
+
+
+/*Registration START*/
+.registrationPage {
+  background-color: #f3eded;
+}
+
+.registration--image {
+  margin-top: -25%;
+  margin-left: -38%;
+  zoom: 1.3;
+}
+
+.registration--data {
+  position: absolute;
+  margin-left: 1150px;
+  margin-top: -1250px;
+  font-weight: bold;
+  font-size: 25px;
+  text-align: center;
+}
+
+.input {
+  line-height: 2;
+  width: 400px;
+}
+
+.registration--button {
+  display: inline-block;
+  width: 300px;
+  height: 40px;
+  border: 1px solid #8F8F8F;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 30px;
+  background: #2B355A;
+  color: white;
+  font-size: 20px;
+}
+/*Registration END*/
+
+
