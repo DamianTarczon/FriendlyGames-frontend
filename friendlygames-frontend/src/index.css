@@ -1,5 +1,6 @@
 body {
   margin: 0;
+  font-family: "Inter", sans-serif;
 }
 
 /* Navbar section START */
@@ -76,3 +77,58 @@ body {
   padding-left: 50px;
 } 
 /* Searchbar for events END */
+
+/* EventsViewWithFilter START */
+.big--container {
+  margin-top: 30px;
+  display: flex;
+  height: auto;
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+.filter--div {
+  box-sizing: border-box;
+  width: 15%;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  box-shadow: 0px 7px 7px rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+}
+
+.filter--header, .filter--gameLvl,
+.filter--surface, .filter--numberOfPlayers,
+.filter--price{
+  margin: 10px;
+  border-bottom: 1px solid grey;
+}
+
+.events--div {
+  width: 80%;
+  margin-left: 50px;
+}
+
+.box {
+  border: 1px solid black;
+  display: inline-block;
+  margin: 20px;
+  border-radius: 5px;
+  max-width: 300px;
+}
+
+.box--imgDiv {
+  float: left;
+  width: 40%;
+  margin-bottom: -4px;
+}
+
+.box--data {
+  float: left;
+  margin-left: 10px;
+  width: 55%;
+}
+
+.box--img {
+  width: 100%;
+}
+
+/* EventsViewWithFilter END */

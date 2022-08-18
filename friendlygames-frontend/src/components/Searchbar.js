@@ -1,6 +1,6 @@
 import React from "react";
 import SearchingCard from "./SearchingCard";
-import data from "../data.js";
+import data from "../data/data.js";
 
 
 export default function Searchbar(){

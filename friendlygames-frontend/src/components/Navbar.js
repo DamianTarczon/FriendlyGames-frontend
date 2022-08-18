@@ -8,7 +8,7 @@ export default function Navbar(){
                 <button type="button" className="button--where" >Gdziekolwiek</button>
                 <button type="button" className="button--when" >Kiedy</button>
                 <button className="loop">
-                    <i class="fa fa-search"></i>
+                    <i className="fa fa-search"></i>
                 </button>
             </div>
             <p className="login">Logowanie</p>
