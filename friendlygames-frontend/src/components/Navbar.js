@@ -7,11 +7,10 @@ export default function Navbar(){
             <div className="searching--bar">
                 <button type="button" className="button--where" >Gdziekolwiek</button>
                 <button type="button" className="button--when" >Kiedy</button>
+                <button className="loop">
+                    <i class="fa fa-search"></i>
+                </button>
             </div>
-            <button className="loop">
-                <span className="circle-loop"></span>
-                <span className="circle-line"></span>
-             </button>
             <p className="login">Logowanie</p>
             <p className="register">Rejestracja</p>
         </nav>
