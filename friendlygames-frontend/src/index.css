@@ -35,3 +35,44 @@ body {
   font-size: 25px;
 }
 /* Navbar section END */
+
+/* Searchingbar for events START */
+.searchbar {
+  display: flex;
+  align-items: center;
+  height: 100px;
+}
+
+.left--arrow, .right--arrow {
+  height: 50px;
+  width: 60px;
+  background-color: white;
+  border-style: none;
+}
+
+.searchingCard {
+  width: 95%;
+  text-align: center;
+}
+
+.card--image{
+  margin-top: 35px;
+  width: 50%;
+}
+
+.left--arrow--img {
+  width: 100%;
+}
+
+.right--arrow--img {
+  width: 100%;
+}
+
+.card--container{
+  text-align: center;
+  width: 6%;
+  display: inline-block;
+  padding-right: 50px;
+  padding-left: 50px;
+} 
+/* Searchbar for events END */
