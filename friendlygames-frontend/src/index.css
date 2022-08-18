@@ -1,8 +1,4 @@
 body {
-  font-family: "Inter";
-  letter-spacing: 5%;
-  font-style: normal;
-  color: black;
   margin: 0;
   font-family: "Inter", sans-serif;
 }
@@ -152,6 +148,7 @@ body {
   height: auto;
   margin-left: 10%;
   margin-right: 10%;
+  margin-bottom: 30px;
 }
 
 .filter--div {
