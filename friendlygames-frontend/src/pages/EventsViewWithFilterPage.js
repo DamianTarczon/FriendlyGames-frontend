@@ -1,6 +1,6 @@
 import React from "react";
 import events from "../data/events.js";
-import Box from "./Box"
+import Box from "../components/Box"
 
 export default function EventsViewWithFilter(){
     const eventElements = events.map(event => (

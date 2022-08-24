@@ -4,7 +4,7 @@ export default function Box(props) {
     return (
         <div className="box">
             <div className="box--imgDiv">
-                <img src={`/images/${props.img}`} alt="img" className="box--img"/>
+                <img src={`../images/${props.img}`} alt="img" className="box--img"/>
             </div>
             <div className="box--data">
                 <p>{props.date}</p>

@@ -196,3 +196,59 @@ body {
 }
 
 /* EventsViewWithFilter END */
+
+/* EventForm START + 1 from EventPage */
+.form-container, .eventPage {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.eventForm {
+  background-color: #2B355A;
+  width: 60%;
+  padding: 50px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 5px 5px 15px -1px rgba(0,0,0,0.75);
+}
+
+.form--input {
+  width: 30%;
+  margin-bottom: 20px;
+  height: 40px;
+  border-radius: 5px;
+  border: 1px solid gray;
+  padding: 5px;
+  font-family: 'Inter', sans-serif;
+}
+
+/* EventForm END */
+
+/* EventPage Start (1 class are in EventForm) */
+.eventPage--div {
+  background-color: #2B355A;
+  width: 60%;
+  padding: 50px;
+  border-radius: 10px;
+  color: white;
+  box-shadow: 5px 5px 15px -1px rgba(0,0,0,0.75);
+}
+
+.event--header {
+  text-align: center;
+}
+
+.event--info {
+  float: left;
+  width: 60%;
+}
+
+.event--mapInfo {
+  float: left;
+}
+/* EventPage END */

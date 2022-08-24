@@ -1,17 +1,24 @@
 import React from 'react';
 import Navbar from "./components/Navbar.js";
 import Searchbar from "./components/Searchbar.js";
-// import Mainview from "./components/Mainview.js";
+import MainviewPage from "./pages/MainviewPage.js";
 import Footer from "./components/Footer.js";
-import EventsViewWithFilter from "./components/EventsViewWithFilter.js";
+import EventsViewWithFilterPage from "./pages/EventsViewWithFilterPage.js";
+import RegistrationPage from "./pages/RegistrationPage.js"
+import EventFormPage from "./pages/EventFormPage.js";
+import EventPage from "./pages/EventPage.js";
 
 export default function App() {
   return (
     <div>
       <Navbar />
-      <Searchbar />
-      <EventsViewWithFilter />
-      <Footer />
+      {/* <Searchbar /> */}
+      <EventsViewWithFilterPage />
+      {/* <RegistrationPage /> */}
+      {/* <MainviewPage /> */}
+      {/* <Footer /> */}
+      {/* <EventFormPage /> */}
+      {/* <EventPage /> */}
     </div>
   );
 }
