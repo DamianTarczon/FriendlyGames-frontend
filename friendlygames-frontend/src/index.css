@@ -161,9 +161,13 @@ body {
 
 .filter--header, .filter--gameLvl,
 .filter--surface, .filter--numberOfPlayers,
-.filter--price{
+.filter--price, .filter--location {
   margin: 10px;
   border-bottom: 1px solid grey;
+}
+
+.form--location {
+  width: 80%;
 }
 
 .events--div {
@@ -194,6 +198,8 @@ body {
 .box--img {
   width: 100%;
 }
+
+
 
 /* EventsViewWithFilter END */
 

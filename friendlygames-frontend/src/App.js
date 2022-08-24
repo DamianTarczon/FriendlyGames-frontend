@@ -13,12 +13,12 @@ export default function App() {
     <div>
       <Navbar />
       {/* <Searchbar /> */}
-      <EventsViewWithFilterPage />
+      {/* <EventsViewWithFilterPage /> */}
       {/* <RegistrationPage /> */}
       {/* <MainviewPage /> */}
       {/* <Footer /> */}
       {/* <EventFormPage /> */}
-      {/* <EventPage /> */}
+      <EventPage />
     </div>
   );
 }
