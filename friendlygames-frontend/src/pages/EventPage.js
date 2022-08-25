@@ -1,5 +1,4 @@
 import React from "react";
-import logo from "../images/footbal-box.png";
 
 export default function RegistrationPage(){
     return (

@@ -1,11 +1,11 @@
 const data = [
         {
-            id: 1,
+            id: 2,
             title: "piłka nożna",
             img: "football.png"
         },
         {
-            id: 2,
+            id: 1,
             title: "koszykówka",
             img: "ball-of-basketball.png"
         },

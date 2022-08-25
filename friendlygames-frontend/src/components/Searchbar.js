@@ -1,28 +1,37 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import SearchingCard from "./SearchingCard";
 import data from "../data/data.js";
+import EventsWithFilterPage from "../pages/EventsWithFilterPage.js";
+import events from "../data/events.js";
+import Box from "../components/Box"
 
 export default function Searchbar(){
+    //initializing first and last index of pictures that will be displayed on the screen
+    const [firstIndexOfCardToShow, setFirstIndexOfCardToShow] = useState(0)
+    const [lastIndexOfCardToShow, setLastIndexOfCardToShow] = useState(7)
 
-    const [firstIndexOfCardToShow, setFirstIndexOfCardToShow] = React.useState(0)
-    const [lastIndexOfCardToShow, setLastIndexOfCardToShow] = React.useState(7)
+    const cards = getDataForSearchbar(firstIndexOfCardToShow, lastIndexOfCardToShow)
 
-    function getData(firstIndex, lastIndex){
+    const [cardsData, setCardsData] = useState(cards)
+
+    function getDataForSearchbar(firstIndex, lastIndex){
         return data.slice(firstIndex,lastIndex).map(item => {
             return (
-                <SearchingCard key={item.id} img={item.img} title={item.title} />
+                <SearchingCard 
+                key={item.id} 
+                img={item.img} 
+                title={item.title} 
+                handleClick={() => handleClick(item.id)} 
+                />
             )
         })
     }
     
-    const cards = getData(firstIndexOfCardToShow, lastIndexOfCardToShow)
     //monitorowanie zmiany
-    React.useEffect(() => {
-        var newCards = getData(firstIndexOfCardToShow, lastIndexOfCardToShow)
+    useEffect(() => {
+        var newCards = getDataForSearchbar(firstIndexOfCardToShow, lastIndexOfCardToShow)
         setCardsData(newCards)
     }, [firstIndexOfCardToShow, lastIndexOfCardToShow])
-
-    const [cardsData, setCardsData] = React.useState(cards)
 
     function next(){
         if (lastIndexOfCardToShow !== data.length){
@@ -38,13 +47,42 @@ export default function Searchbar(){
         }
     }
 
+    const [eventsData, setEventsData] = useState(events)
+
+    function getEventsDataById(array, id){
+        const newArray=[]
+        array.forEach(element => {
+            if (element.eventCategoryId === id){
+                newArray.push(element)
+            }
+        });
+        return newArray
+    }
+
+    function handleClick(id){
+        const newEventsData = getEventsDataById(events, id)
+        setEventsData(newEventsData)
+    }
+
+    const eventElements = eventsData.map(event => (
+        <Box 
+        key={event.id}
+        {...event}
+        />
+    ))
+
     return (
-        <div className="searchbar">
-            <button type="button" className="left--arrow" onClick={previous}><img src="/images/left.png" className="left--arrow--img" alt="img"/></button>
-            <div className="searchingCard">
-                {cardsData}
+        <div>
+            <div className="searchbar">
+                <button type="button" className="left--arrow" onClick={previous}><img src="/images/left.png" className="left--arrow--img" alt="img"/></button>
+                <div className="searchingCard">
+                    {cardsData}
+                </div>
+                <button type="button" className="right--arrow" onClick={next}><img src="/images/right.png" className="right--arrow--img" alt="img"/></button>
             </div>
-            <button type="button" className="right--arrow" onClick={next}><img src="/images/right.png" className="right--arrow--img" alt="img"/></button>
+            <EventsWithFilterPage
+                eventElements={eventElements}
+            />
         </div>
     )
 }
