@@ -1,21 +1,24 @@
 import React from "react";
+import { useLocation } from "react-router-dom"
 
-export default function RegistrationPage(){
+export default function EventPage(){
+    const event = useLocation().state
+
     return (
         <div className="eventPage">
             <div className="eventPage--div">
-                <h1 className="event--header">Nazwa wydarzenia</h1>
+                <h1 className="event--header">{event.name}</h1>
                 <div className="event--info">
-                    <h3>Kategoria wydarzenia</h3>
-                    <h3>Data rozpoczęcia/Data zakończenia</h3>
-                    <h3>Poziom gry</h3>
-                    <h3>Nawierzchnia</h3>
-                    <h3>Otoczenie</h3>
-                    <h3>Liczba zapisanych/Liczba potrzebnych graczy</h3>
-                    <h3>Cena</h3>
+                    <h3>{event.eventCategory.name}</h3>
+                    <h3>{event.startDate}/{event.endDate}</h3>
+                    <h3>{event.levelCategory.name}</h3>
+                    <h3>{event.surfaceCategory.name}</h3>
+                    <h3>{event.surroundingCategory.name}</h3>
+                    <h3>{event.playersNeeded}</h3>
+                    <h3>{event.price}</h3>
                 </div>
                 <div className="event--mapInfo">
-                    <h3>Lokalizacja</h3>
+                    <h3>{event.location.street}, {event.location.postalCode} {event.location.city}</h3>
                     <div className="event--map">
                         Mapa
                     </div>

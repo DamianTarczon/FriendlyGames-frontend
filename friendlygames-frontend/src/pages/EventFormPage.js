@@ -25,7 +25,9 @@ export default function EventForm(){
         name: "",
         startDate: "",
         endDate: "",
-        location: "",
+        street: "",
+        postalCode: "",
+        city: "",
         numberOfPlayers: "",
         price: "",
         eventCategory: "",
@@ -69,12 +71,31 @@ export default function EventForm(){
                 />
                 <input
                     type="text"
-                    placeholder="Miejsce"
+                    placeholder="Ulica"
                     className="form--input"
-                    name="location"
+                    name="street"
                     onChange={handleChange}
-                    value={eventData.location}
+                    value={eventData.street}
                 />
+                <div className="form--placeInfo">
+                    <input
+                        type="text"
+                        placeholder="Kod pocztowy"
+                        className="form--postalCode"
+                        name="postalCode"
+                        onChange={handleChange}
+                        value={eventData.postalCode}
+                    />
+                    <input
+                        type="text"
+                        placeholder="Miasto"
+                        className="form--city"
+                        name="city"
+                        onChange={handleChange}
+                        value={eventData.city}
+                    />
+
+                </div>
                 <input
                     type="number"
                     placeholder="Ilość graczy"
@@ -93,46 +114,48 @@ export default function EventForm(){
                     onChange={handleChange}
                     value={eventData.price}
                 />
-                <select 
-                    id="eventCategory"
-                    className="form--input"
-                    value={eventData.eventCategory}
-                    onChange={handleChange}
-                    name="eventCategory"
-                >
-                    <option value="">Rodzaj wydarzenia</option>
-                    {eventCategory}
-                </select>
-                <select 
-                    id="levelCategory"
-                    className="form--input"
-                    value={eventData.levelCategory}
-                    onChange={handleChange}
-                    name="levelCategory"
-                >
-                    <option value="">Poziom gry</option>
-                    {levelCategory}
-                </select>
-                <select 
-                    id="surfaceCategory"
-                    className="form--input"
-                    value={eventData.surfaceCategory}
-                    onChange={handleChange}
-                    name="surfaceCategory"
-                >
-                    <option value="">Nawierzchnia</option>
-                    {surfaceCategory}
-                </select>
-                <select 
-                    id="surroundingCategory"
-                    className="form--input"
-                    value={eventData.surroundingCategory}
-                    onChange={handleChange}
-                    name="surroundingCategory"
-                >
-                    <option value="">Otoczenie</option>
-                    {surroundingCategory}
-                </select>
+                <div className="form--selectDiv">
+                    <select 
+                        id="eventCategory"
+                        className="form--event"
+                        value={eventData.eventCategory}
+                        onChange={handleChange}
+                        name="eventCategory"
+                    >
+                        <option value="">Rodzaj wydarzenia</option>
+                        {eventCategory}
+                    </select>
+                    <select 
+                        id="levelCategory"
+                        className="form--lvl"
+                        value={eventData.levelCategory}
+                        onChange={handleChange}
+                        name="levelCategory"
+                    >
+                        <option value="">Poziom gry</option>
+                        {levelCategory}
+                    </select>
+                    <select 
+                        id="surfaceCategory"
+                        className="form--surface"
+                        value={eventData.surfaceCategory}
+                        onChange={handleChange}
+                        name="surfaceCategory"
+                    >
+                        <option value="">Nawierzchnia</option>
+                        {surfaceCategory}
+                    </select>
+                    <select 
+                        id="surroundingCategory"
+                        className="form--surrounding"
+                        value={eventData.surroundingCategory}
+                        onChange={handleChange}
+                        name="surroundingCategory"
+                    >
+                        <option value="">Otoczenie</option>
+                        {surroundingCategory}
+                    </select>
+                </div>
                 <button className="form--submit">Submit</button>
             </form>
         </div>

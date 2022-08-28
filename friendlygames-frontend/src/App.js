@@ -1,7 +1,8 @@
 import React from 'react';
+import {Link, Route, Routes} from "react-router-dom"
 import Navbar from "./components/Navbar.js";
-import Searchbar from "./components/Searchbar.js";
-import MainviewPage from "./pages/MainviewPage.js";
+import SearchingForEventsPage from "./pages/SearchingForEventsPage.js";
+import Home from "./pages/Home.js";
 import Footer from "./components/Footer.js";
 import RegistrationPage from "./pages/RegistrationPage.js"
 import EventFormPage from "./pages/EventFormPage.js";
@@ -11,12 +12,13 @@ export default function App() {
   return (
     <div>
       <Navbar />
-      <Searchbar />
-      {/* <RegistrationPage /> */}
-      {/* <MainviewPage /> */}
-      {/* <Footer /> */}
-      {/* <EventFormPage /> */}
-      {/* <EventPage /> */}
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/events" element={<SearchingForEventsPage />} />
+        <Route path='/events/:id' element={<EventPage />} />
+        <Route path="/registration" element={<RegistrationPage />} />
+        <Route path="/add-event" element={<EventFormPage />} />
+      </Routes>
     </div>
   );
 }

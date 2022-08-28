@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from "react";
-import SearchingCard from "./SearchingCard";
+import SearchingCard from "../components/SearchingCard";
 import data from "../data/data.js";
-import EventsWithFilterPage from "../pages/EventsWithFilterPage.js";
+import EventsWithFilterPage from "../components/EventsWithFilterPage.js";
 import events from "../data/events.js";
 import Box from "../components/Box"
 
@@ -52,7 +52,7 @@ export default function Searchbar(){
     function getEventsDataById(array, id){
         const newArray=[]
         array.forEach(element => {
-            if (element.eventCategoryId === id){
+            if (element.eventCategory.id === id){
                 newArray.push(element)
             }
         });
