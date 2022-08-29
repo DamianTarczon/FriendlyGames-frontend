@@ -1,5 +1,5 @@
 import React from 'react';
-import {Link, Route, Routes} from "react-router-dom"
+import {Route, Routes} from "react-router-dom"
 import Navbar from "./components/Navbar.js";
 import SearchingForEventsPage from "./pages/SearchingForEventsPage.js";
 import Home from "./pages/Home.js";
@@ -8,12 +8,13 @@ import RegistrationPage from "./pages/RegistrationPage.js"
 import EventFormPage from "./pages/EventFormPage.js";
 import EventPage from "./pages/EventPage.js";
 
+
 export default function App() {
   return (
     <div>
       <Navbar />
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route exact path="/" element={<Home />} />
         <Route path="/events" element={<SearchingForEventsPage />} />
         <Route path='/events/:id' element={<EventPage />} />
         <Route path="/registration" element={<RegistrationPage />} />

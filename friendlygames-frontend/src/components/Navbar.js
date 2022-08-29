@@ -4,7 +4,7 @@ import {Link} from "react-router-dom"
 export default function Navbar(){
     return (
         <nav className="navbar">
-            <h2 className="app--name">friendlygames</h2>
+            <h2 className="app--name"><Link to="/">friendlygames</Link></h2>
             <div className="searching--bar">
                 <button type="button" className="button--where" >Gdziekolwiek</button>
                 <button type="button" className="button--when" >Kiedy</button>

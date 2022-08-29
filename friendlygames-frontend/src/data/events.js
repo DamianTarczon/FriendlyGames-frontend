@@ -31,7 +31,7 @@ const events = [
         img: "footbal-box.png",
     },
     {
-        id: 1,
+        id: 2,
         name: "3 vs 3",
         startDate: "20.08.2022, 16:00",
         endDate: "20.08.2022, 18:00",
