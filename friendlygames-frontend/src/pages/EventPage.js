@@ -5,7 +5,6 @@ import Map from "../components/Map.js";
 
 
 export default function EventPage(){
-    //do ukrycia
     const { isLoaded } = useJsApiLoader({googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY})
     const event = useLocation().state
 

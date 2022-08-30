@@ -1,15 +1,24 @@
 import React from "react";
-import Filter from "./Filter"
+import Filter from "./Filter";
+import Box from "../components/Box";
 
 export default function EventsViewWithFilter(props){
+
+    console.log(props)
+
+    const eventBoxes = props.eventElements.map(event => (
+        <Box 
+        key={event.id}
+        {...event}
+        />
+    ))
+
+    
     return (
         <div className="big--container">
             <Filter />
             <div className="events--div">
-                {props.eventElements.length > 0 ? props.eventElements : 
-                <h2 
-                    className="event--notFoundAnnouncement"
-                >Nie znaleźliśmy pasujących wydarzeń.</h2>}
+                {eventBoxes}
             </div>
         </div>
 )}

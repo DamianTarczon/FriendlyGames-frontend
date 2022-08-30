@@ -3,7 +3,7 @@ import SearchingCard from "../components/SearchingCard";
 import data from "../data/data.js";
 import EventsWithFilterPage from "../components/EventsWithFilterPage.js";
 import events from "../data/events.js";
-import Box from "../components/Box"
+
 
 export default function Searchbar(){
     //initializing first and last index of pictures that will be displayed on the screen
@@ -51,16 +51,21 @@ export default function Searchbar(){
     const [eventsData, setEventsData] = useState(events)
 
     //przykładowe użycie fetch do testu
-    // const [smapleData, setSampleData] = useState({})
+    const [sampleData, setSampleData] = useState({})
+    const [isLoaded, setIsLoaded] = useState(false)
     
-    // useEffect(function() {
-    //     fetch("https://localhost:7089/api/Events")
-    //         .then(res => res.json())
-    //         .then(testData => setSampleData(testData))
-    // }, [])
+    useEffect(() => {
+        async function fetchData() {
+        await fetch("https://localhost:7089/api/Events")
+            .then(res => res.json())
+            .then(testData => setSampleData(testData))
+            setIsLoaded(true);
+        }
+        fetchData();
+    }, []);
 
-    // console.log(smapleData)
     //koniec przykladowego użycia
+    
     
 
     function getEventsDataById(array, id){
@@ -78,12 +83,7 @@ export default function Searchbar(){
         setEventsData(newEventsData)
     }
 
-    const eventElements = eventsData.map(event => (
-        <Box 
-        key={event.id}
-        {...event}
-        />
-    ))
+    // console.log(sampleData)
 
     return (
         <div>
@@ -94,9 +94,9 @@ export default function Searchbar(){
                 </div>
                 <button type="button" className="right--arrow" onClick={next}><img src="/images/right.png" className="right--arrow--img" alt="img"/></button>
             </div>
-            <EventsWithFilterPage
-                eventElements={eventElements}
-            />
+            {isLoaded && <EventsWithFilterPage
+                eventElements={sampleData}
+            />}
         </div>
     )
 }

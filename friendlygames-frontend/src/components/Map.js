@@ -9,7 +9,7 @@ export default function Map(props){
     const [isLoaded, setIsLoaded] = useState(false)
 
     useEffect(() => {
-        Geocode.fromAddress(`${props.location.street}, ${props.location.postalCode} ${props.location.city}`).then(
+        Geocode.fromAddress(`${props.location.street}, ${props.location.city}`).then(
             (response) => {
                 const { lat, lng } = response.results[0].geometry.location;
                 setPlace({lat, lng})
