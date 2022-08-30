@@ -12,7 +12,6 @@ export default function Map(props){
         Geocode.fromAddress(`${props.location.street}, ${props.location.postalCode} ${props.location.city}`).then(
             (response) => {
                 const { lat, lng } = response.results[0].geometry.location;
-                console.log(lat, lng)
                 setPlace({lat, lng})
                 setIsLoaded(true)
             },
