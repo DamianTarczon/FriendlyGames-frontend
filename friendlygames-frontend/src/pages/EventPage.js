@@ -1,7 +1,12 @@
 import React from "react";
 import { useLocation } from "react-router-dom"
+import { useJsApiLoader } from "@react-google-maps/api"
+import Map from "../components/Map.js";
+
 
 export default function EventPage(){
+    //do ukrycia
+    const { isLoaded } = useJsApiLoader({googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY})
     const event = useLocation().state
 
     return (
@@ -20,7 +25,7 @@ export default function EventPage(){
                 <div className="event--mapInfo">
                     <h3>{event.location.street}, {event.location.postalCode} {event.location.city}</h3>
                     <div className="event--map">
-                        Mapa
+                        {isLoaded && <Map location={event.location} />}
                     </div>
                 </div>
             </div>

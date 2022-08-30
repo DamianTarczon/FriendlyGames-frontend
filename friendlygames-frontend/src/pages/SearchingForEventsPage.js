@@ -51,15 +51,15 @@ export default function Searchbar(){
     const [eventsData, setEventsData] = useState(events)
 
     //przykładowe użycie fetch do testu
-    const [smapleData, setSampleData] = useState({})
+    // const [smapleData, setSampleData] = useState({})
     
-    useEffect(function() {
-        fetch("https://localhost:7089/api/Events")
-            .then(res => res.json())
-            .then(testData => setSampleData(testData))
-    }, [])
+    // useEffect(function() {
+    //     fetch("https://localhost:7089/api/Events")
+    //         .then(res => res.json())
+    //         .then(testData => setSampleData(testData))
+    // }, [])
 
-    console.log(smapleData)
+    // console.log(smapleData)
     //koniec przykladowego użycia
     
 

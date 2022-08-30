@@ -24,8 +24,8 @@ const events = [
         price: 9.99,
         location: {
             city: "Kraków",
-            street: "ul. Hipolitów",
-            postalCode: "30-002"
+            street: "Grzegórzecka 24",
+            postalCode: "31-531"
         },
         placesLeft: 1,
         img: "footbal-box.png",
@@ -54,9 +54,9 @@ const events = [
         playersNeeded: 6,
         price: "Za darmo",
         location: {
-            city: "Kraków",
-            street: "ul. Hipolitów",
-            postalCode: "30-002"
+            city: "Tarnów",
+            street: "Piłsudskiego 24",
+            postalCode: "33-100"
         },
         placesLeft: 2,
         img: "basketball-box.png",
