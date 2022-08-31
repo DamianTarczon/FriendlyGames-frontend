@@ -2,7 +2,6 @@ import React, {useState, useEffect} from "react";
 import SearchingCard from "../components/SearchingCard";
 import data from "../data/data.js";
 import EventsWithFilterPage from "../components/EventsWithFilterPage.js";
-import events from "../data/events.js";
 
 export default function Searchbar(){
     //initializing first and last index of pictures that will be displayed on the screen
@@ -47,9 +46,9 @@ export default function Searchbar(){
     }
 
     //wszystkie eventy
+    var events;
     const [eventsData, setEventsData] = useState(events)
 
-    //przykładowe użycie fetch do testu
     const [sampleData, setSampleData] = useState({})
     const [isLoaded, setIsLoaded] = useState(false)
     
@@ -62,24 +61,12 @@ export default function Searchbar(){
         }
         fetchData();
     }, []);
-
-    //koniec przykladowego użycia
     
-    
-    //przejrzec dane i dopasowac do obiektu
     function getEventsDataById(id){
-        console.log(sampleData)
         const newArray=[]
-        // sampleData.forEach(element => {
-        //     if (element.eventCategory.id === id){
-        //         newArray.push(element)
-        //     }
-        // });
-        // return newArray
     }
-    console.log(sampleData)
+    
     function handleClick(id){
-        console.log(id)
         const newEventsData = getEventsDataById(id)
         setEventsData(newEventsData)
     }
