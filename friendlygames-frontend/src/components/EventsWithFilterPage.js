@@ -3,9 +3,6 @@ import Filter from "./Filter";
 import Box from "../components/Box";
 
 export default function EventsViewWithFilter(props){
-
-    console.log(props)
-
     const eventBoxes = props.eventElements.map(event => (
         <Box 
         key={event.id}
@@ -13,7 +10,6 @@ export default function EventsViewWithFilter(props){
         />
     ))
 
-    
     return (
         <div className="big--container">
             <Filter />

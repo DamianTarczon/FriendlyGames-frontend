@@ -198,7 +198,7 @@ body {
   width: 100%;
 }
 
-.event--notFoundAnnouncement {
+.event--Announcement {
   color: lightgray;
   text-align: center;
 }
@@ -225,7 +225,7 @@ body {
 }
 
 .eventForm {
-  background-color: #2B355A;
+  background-color: #f3eded;
   width: 60%;
   padding: 50px;
   border-radius: 10px;
@@ -248,27 +248,8 @@ body {
   min-width: 338px;
 }
 
-.form--postalCode, .form--city {
-  margin-bottom: 20px;
-  height: 40px;
-  border-radius: 5px;
-  border: 1px solid gray;
-  padding: 5px;
-  font-family: 'Inter', sans-serif;
-}
-
-.form--postalCode {
-  width: 30%;
-  margin-left: 2%;
-}
-
-.form--city {
-  width: 55%;
-  margin-left: 5%;
-}
-
 .form--selectDiv {
-  width: 80%;
+  width: 85%;
 }
 
 .form--event, .form--lvl,
@@ -287,11 +268,10 @@ body {
 
 /* EventPage Start (1 class are in EventForm) */
 .eventPage--div {
-  background-color: #2B355A;
+  background-color: #f3eded;
   width: 60%;
   padding: 50px;
   border-radius: 10px;
-  color: white;
   box-shadow: 5px 5px 15px -1px rgba(0,0,0,0.75);
 }
 
@@ -313,5 +293,11 @@ body {
 .map--container{
   width: 100%;
   height: 400px;
+}
+
+.event--h3 {
+  margin-top: -3%;
+  border-bottom: 1px solid #A52A2A;
+  margin-right: 10%;
 }
 /* EventPage END */

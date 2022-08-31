@@ -18,7 +18,7 @@ export default function App() {
         <Route path="/events" element={<SearchingForEventsPage />} />
         <Route path='/events/:id' element={<EventPage />} />
         <Route path="/registration" element={<RegistrationPage />} />
-        <Route path="/add-event" element={<EventFormPage />} />
+        <Route path="/create-event" element={<EventFormPage />} />
       </Routes>
     </div>
   );

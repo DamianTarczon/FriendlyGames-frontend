@@ -12,14 +12,16 @@ export default function Box(props) {
         message="Brak wolnych miejsc!"
     }
 
+    const date = props.startDateTime.split("T")
+
     return (
         <div className="box">
-            <Link to={`/events/${props.id}`} state={props}>
+            <Link to={`/events/${props.id}`} state={props.id}>
             <div className="box--imgDiv">
-                <img src={`../images/${props.img}`} alt="img" className="box--img"/>
+                <img src={`../images/${props.imageForEvent}`} alt="img" className="box--img"/>
             </div>
             <div className="box--data">
-                <p>{props.startDate}</p>
+                <p>{date[0]} {date[1]}</p>
                 <p>Lokalizacja:</p>
                 <p className="box--location">{props.location.street} {props.location.city}</p>
                 <p className="box--placesLeft">{message}</p>

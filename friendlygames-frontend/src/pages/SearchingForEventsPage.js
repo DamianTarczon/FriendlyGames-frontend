@@ -67,23 +67,24 @@ export default function Searchbar(){
     //koniec przykladowego użycia
     
     
-
-    function getEventsDataById(array, id){
+    //przejrzec dane i dopasowac do obiektu
+    function getEventsDataById(id){
+        console.log(sampleData)
         const newArray=[]
-        array.forEach(element => {
-            if (element.eventCategory.id === id){
-                newArray.push(element)
-            }
-        });
-        return newArray
+        // sampleData.forEach(element => {
+        //     if (element.eventCategory.id === id){
+        //         newArray.push(element)
+        //     }
+        // });
+        // return newArray
     }
-
+    console.log(sampleData)
     function handleClick(id){
-        const newEventsData = getEventsDataById(events, id)
+        console.log(id)
+        const newEventsData = getEventsDataById(id)
         setEventsData(newEventsData)
     }
 
-    // console.log(sampleData)
 
     return (
         <div>

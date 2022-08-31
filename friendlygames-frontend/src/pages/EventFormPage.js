@@ -23,13 +23,12 @@ export default function EventForm(){
 
     const [eventData, setEventData] = useState({
         name: "",
-        startDate: "",
-        endDate: "",
+        startDateTime: "",
+        endDateTime: "",
         street: "",
-        postalCode: "",
         city: "",
-        numberOfPlayers: "",
-        price: "",
+        maxNumberOfPlayers: "",
+        priceForEvent: "",
         eventCategory: "",
         levelCategory: "",
         surfaceCategory: "",
@@ -47,6 +46,7 @@ export default function EventForm(){
     return (
         <div className="form-container">
             <form className="eventForm">
+                <label for="name">Nazwa wydarzenia</label>
                 <input
                     type="text"
                     placeholder="Nazwa wydarzenia"
@@ -54,21 +54,27 @@ export default function EventForm(){
                     name="name"
                     onChange={handleChange}
                     value={eventData.name}
+                    id="name"
                 />
+                <label for="startDateTime">Data rozpoczęcia</label>
                 <input
                     type="datetime-local"
                     className="form--input"
-                    name="startDate"
+                    name="startDateTime"
                     onChange={handleChange}
-                    value={eventData.startDate}
+                    value={eventData.startDateTime}
+                    id="startDateTime"
                 />
+                <label for="endDateTime">Data zakończenia</label>
                 <input
                     type="datetime-local"
                     className="form--input"
-                    name="endDate"
+                    name="endDateTime"
                     onChange={handleChange}
-                    value={eventData.endDate}
+                    value={eventData.endDateTime}
+                    id="endDateTime"
                 />
+                <label for="street">Ulica</label>
                 <input
                     type="text"
                     placeholder="Ulica"
@@ -76,43 +82,39 @@ export default function EventForm(){
                     name="street"
                     onChange={handleChange}
                     value={eventData.street}
+                    id="street"
                 />
-                <div className="form--placeInfo">
-                    <input
-                        type="text"
-                        placeholder="Kod pocztowy"
-                        className="form--postalCode"
-                        name="postalCode"
-                        onChange={handleChange}
-                        value={eventData.postalCode}
-                    />
-                    <input
-                        type="text"
-                        placeholder="Miasto"
-                        className="form--city"
-                        name="city"
-                        onChange={handleChange}
-                        value={eventData.city}
-                    />
-
-                </div>
+                <label for="city">Miasto</label>
+                <input
+                    type="text"
+                    placeholder="Miasto"
+                    className="form--input"
+                    name="city"
+                    onChange={handleChange}
+                    value={eventData.city}
+                    id="city"
+                />
+                <label for="maxNumberOfPlayers">Liczba graczy</label>
                 <input
                     type="number"
                     placeholder="Ilość graczy"
                     className="form--input"
-                    name="numberOfPlayers"
+                    name="maxNumberOfPlayers"
                     onChange={handleChange}
-                    value={eventData.numberOfPlayers}
+                    value={eventData.maxNumberOfPlayers}
+                    id="maxNumberOfPlayers"
                 />
+                <label for="priceForEvent">Cena</label>
                 <input
                     type="number"
                     step="any"
                     min="0"
                     placeholder="Cena"
                     className="form--input"
-                    name="price"
+                    name="priceForEvent"
                     onChange={handleChange}
-                    value={eventData.price}
+                    value={eventData.priceForEvent}
+                    id="priceForEvent"
                 />
                 <div className="form--selectDiv">
                     <select 
