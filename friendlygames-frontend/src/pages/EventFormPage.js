@@ -94,7 +94,7 @@ export default function EventForm(){
                     value={eventData.city}
                     id="city"
                 />
-                <label for="maxNumberOfPlayers">Liczba graczy</label>
+                <label for="maxNumberOfPlayers">Maksymalna liczba graczy</label>
                 <input
                     type="number"
                     placeholder="Ilość graczy"
@@ -158,7 +158,7 @@ export default function EventForm(){
                         {surroundingCategory}
                     </select>
                 </div>
-                <button className="form--submit">Submit</button>
+                <button className="form--submit">Utwórz wydarzenie!</button>
             </form>
         </div>
     )

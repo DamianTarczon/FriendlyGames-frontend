@@ -3,11 +3,39 @@ const categoriesData = [
         eventCategory: [
             {
                 id: 1,
-                name: "Koszykówka"
+                name: "Piłka nożna"
             },
             {
                 id: 2,
-                name: "Piłka nożna"
+                name: "Koszykówka"
+            },
+            {
+                id: 3,
+                name: "Siłownia"
+            },
+            {
+                id: 4,
+                name: "Bieganie"
+            },
+            {
+                id: 5,
+                name: "Rower"
+            },
+            {
+                id: 6,
+                name: "Siatkówka"
+            },
+            {
+                id: 7,
+                name: "Tenis"
+            },
+            {
+                id: 8,
+                name: "Ping pong"
+            },
+            {
+                id: 9,
+                name: "Kręgle"
             },
         ],
         levelCategory: [

@@ -4,7 +4,6 @@ import data from "../data/data.js";
 import EventsWithFilterPage from "../components/EventsWithFilterPage.js";
 import events from "../data/events.js";
 
-
 export default function Searchbar(){
     //initializing first and last index of pictures that will be displayed on the screen
     const [firstIndexOfCardToShow, setFirstIndexOfCardToShow] = useState(0)
@@ -84,7 +83,6 @@ export default function Searchbar(){
         const newEventsData = getEventsDataById(id)
         setEventsData(newEventsData)
     }
-
 
     return (
         <div>

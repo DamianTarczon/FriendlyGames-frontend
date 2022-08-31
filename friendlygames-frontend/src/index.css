@@ -212,7 +212,6 @@ body {
   margin-top: 15%;
   margin-bottom: -10%;
 }
-
 /* EventsViewWithFilter END */
 
 /* EventForm START + 1 from EventPage */
@@ -235,7 +234,6 @@ body {
   box-shadow: 5px 5px 15px -1px rgba(0,0,0,0.75);
   min-width: 500px;
 }
-
 
 .form--input {
   width: 30%;
@@ -263,7 +261,6 @@ body {
   padding: 5px;
   font-family: 'Inter', sans-serif;
 }
-
 /* EventForm END */
 
 /* EventPage Start (1 class are in EventForm) */
