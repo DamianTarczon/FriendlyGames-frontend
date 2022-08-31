@@ -104,7 +104,7 @@ export default function EventForm(){
                     value={eventData.maxNumberOfPlayers}
                     id="maxNumberOfPlayers"
                 />
-                <label for="priceForEvent">Cena</label>
+                <label for="priceForEvent">Cena całkowita</label>
                 <input
                     type="number"
                     step="any"
