@@ -12,7 +12,7 @@ export default function Navbar(){
                     <i className="fa fa-search"></i>
                 </button>
             </div>
-            <p className="events--link"><Link to="/create-events">Utwórz wydarzenie</Link></p>
+            <p className="events--link"><Link to="/create-event">Utwórz wydarzenie</Link></p>
             <p className="events--link"><Link to="/events">Wydarzenia</Link></p>
             <p className="login">Logowanie</p>
             <p className="register"><Link to="/registration">Rejestracja</Link></p>
