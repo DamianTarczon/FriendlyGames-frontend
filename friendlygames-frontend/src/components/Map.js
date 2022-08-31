@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { GoogleMap, MarkerF } from "@react-google-maps/api";
 import  Geocode  from "react-geocode"
 
-
 export default function Map(props){
     Geocode.setApiKey(process.env.REACT_APP_GOOGLE_MAPS_API_KEY);
     const [place, setPlace] = useState({})

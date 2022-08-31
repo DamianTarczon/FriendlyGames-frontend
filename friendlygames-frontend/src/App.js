@@ -8,7 +8,6 @@ import RegistrationPage from "./pages/RegistrationPage.js"
 import EventFormPage from "./pages/EventFormPage.js";
 import EventPage from "./pages/EventPage.js";
 
-
 export default function App() {
   return (
     <div>

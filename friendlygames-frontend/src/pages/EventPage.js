@@ -3,7 +3,6 @@ import { useLocation } from "react-router-dom"
 import { useJsApiLoader } from "@react-google-maps/api"
 import Map from "../components/Map.js";
 
-
 export default function EventPage(){
     const { isLoaded } = useJsApiLoader({googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY})
     const eventId = useLocation().state
