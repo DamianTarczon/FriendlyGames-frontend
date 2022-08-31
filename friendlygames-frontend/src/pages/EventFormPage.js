@@ -22,17 +22,19 @@ export default function EventForm(){
     const surroundingCategory = createOptionsFromArray(categoriesData[0].surroundingCategory)
 
     const [eventData, setEventData] = useState({
-        name: "",
-        startDateTime: "",
-        endDateTime: "",
-        street: "",
-        city: "",
-        maxNumberOfPlayers: "",
-        priceForEvent: "",
-        eventCategory: "",
-        levelCategory: "",
-        surfaceCategory: "",
-        surroundingCategory: ""
+        Name: "",
+        CreatorId: 1,
+        StartDateTime: "",
+        EndDateTime: "",
+        Street: "",
+        City: "",
+        MaxNumberOfPlayers: "",
+        PriceForEvent: "",
+        EventCategoryId: "",
+        LevelCategoryId: "",
+        SurfaceCategoryId: "",
+        SurroundingCategoryId: "",
+        ImageForEvent: "basketball-box.png"
     })
 
     function handleChange(event){
@@ -43,116 +45,126 @@ export default function EventForm(){
         }))
     }
 
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        const requestOptions = {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(eventData)
+        };
+        fetch('https://localhost:7089/api/Events', requestOptions)
+    }
+
     return (
         <div className="form-container">
-            <form className="eventForm">
+            <form className="eventForm" onSubmit={handleSubmit}>
                 <label for="name">Nazwa wydarzenia</label>
                 <input
                     type="text"
                     placeholder="Nazwa wydarzenia"
                     className="form--input"
-                    name="name"
+                    name="Name"
                     onChange={handleChange}
-                    value={eventData.name}
-                    id="name"
+                    value={eventData.Name}
+                    id="Name"
                 />
                 <label for="startDateTime">Data rozpoczęcia</label>
                 <input
                     type="datetime-local"
                     className="form--input"
-                    name="startDateTime"
+                    name="StartDateTime"
                     onChange={handleChange}
-                    value={eventData.startDateTime}
-                    id="startDateTime"
+                    value={eventData.StartDateTime}
+                    id="StartDateTime"
                 />
                 <label for="endDateTime">Data zakończenia</label>
                 <input
                     type="datetime-local"
                     className="form--input"
-                    name="endDateTime"
+                    name="EndDateTime"
                     onChange={handleChange}
-                    value={eventData.endDateTime}
-                    id="endDateTime"
+                    value={eventData.EndDateTime}
+                    id="EndDateTime"
                 />
                 <label for="street">Ulica</label>
                 <input
                     type="text"
                     placeholder="Ulica"
                     className="form--input"
-                    name="street"
+                    name="Street"
                     onChange={handleChange}
-                    value={eventData.street}
-                    id="street"
+                    value={eventData.Street}
+                    id="Street"
                 />
                 <label for="city">Miasto</label>
                 <input
                     type="text"
                     placeholder="Miasto"
                     className="form--input"
-                    name="city"
+                    name="City"
                     onChange={handleChange}
-                    value={eventData.city}
-                    id="city"
+                    value={eventData.City}
+                    id="City"
                 />
                 <label for="maxNumberOfPlayers">Liczba graczy</label>
                 <input
                     type="number"
                     placeholder="Ilość graczy"
                     className="form--input"
-                    name="maxNumberOfPlayers"
+                    name="MaxNumberOfPlayers"
                     onChange={handleChange}
-                    value={eventData.maxNumberOfPlayers}
-                    id="maxNumberOfPlayers"
+                    value={eventData.MaxNumberOfPlayers}
+                    id="MaxNumberOfPlayers"
                 />
-                <label for="priceForEvent">Cena</label>
+                <label for="PriceForEvent">Cena</label>
                 <input
                     type="number"
                     step="any"
                     min="0"
                     placeholder="Cena"
                     className="form--input"
-                    name="priceForEvent"
+                    name="PriceForEvent"
                     onChange={handleChange}
-                    value={eventData.priceForEvent}
-                    id="priceForEvent"
+                    value={eventData.PriceForEvent}
+                    id="PriceForEvent"
                 />
                 <div className="form--selectDiv">
                     <select 
-                        id="eventCategory"
+                        id="EventCategoryId"
                         className="form--event"
-                        value={eventData.eventCategory}
+                        value={eventData.EventCategoryId}
                         onChange={handleChange}
-                        name="eventCategory"
+                        name="EventCategoryId"
                     >
                         <option value="">Rodzaj wydarzenia</option>
                         {eventCategory}
                     </select>
                     <select 
-                        id="levelCategory"
+                        id="LevelCategoryId"
                         className="form--lvl"
-                        value={eventData.levelCategory}
+                        value={eventData.LevelCategoryId}
                         onChange={handleChange}
-                        name="levelCategory"
+                        name="LevelCategoryId"
                     >
                         <option value="">Poziom gry</option>
                         {levelCategory}
                     </select>
                     <select 
-                        id="surfaceCategory"
+                        id="SurfaceCategoryId"
                         className="form--surface"
-                        value={eventData.surfaceCategory}
+                        value={eventData.SurfaceCategoryId}
                         onChange={handleChange}
-                        name="surfaceCategory"
+                        name="SurfaceCategoryId"
                     >
                         <option value="">Nawierzchnia</option>
                         {surfaceCategory}
                     </select>
                     <select 
-                        id="surroundingCategory"
+                        id="SurroundingCategoryId"
                         className="form--surrounding"
-                        value={eventData.surroundingCategory}
+                        value={eventData.SurroundingCategoryId}
                         onChange={handleChange}
-                        name="surroundingCategory"
+                        name="SurroundingCategoryId"
                     >
                         <option value="">Otoczenie</option>
                         {surroundingCategory}

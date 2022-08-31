@@ -44,9 +44,9 @@ export default function EventPage(){
                     <h3 className="event--h3">{data.priceForEvent} zł</h3>
                 </div>
                 <div className="event--mapInfo">
-                    <h3>{data.location.street} {data.location.city}</h3>
+                    <h3>{data.street} {data.city}</h3>
                     <div className="event--map">
-                        {isLoaded && <Map location={data.location} />}
+                        {isLoaded && <Map location={data} />}
                     </div>
                 </div>
             </div>

@@ -23,7 +23,7 @@ export default function Box(props) {
             <div className="box--data">
                 <p>{date[0]} {date[1]}</p>
                 <p>Lokalizacja:</p>
-                <p className="box--location">{props.location.street} {props.location.city}</p>
+                <p className="box--location">{props.street} {props.city}</p>
                 <p className="box--placesLeft">{message}</p>
             </div>
             </Link>
