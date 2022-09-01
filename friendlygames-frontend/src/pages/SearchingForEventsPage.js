@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react";
+import React, {useState, useEffect } from "react";
 import SearchingCard from "../components/SearchingCard";
 import data from "../data/data.js";
 import EventsWithFilterPage from "../components/EventsWithFilterPage.js";
@@ -9,8 +9,49 @@ export default function Searchbar(){
     const [firstIndexOfCardToShow, setFirstIndexOfCardToShow] = useState(0)
     const [lastIndexOfCardToShow, setLastIndexOfCardToShow] = useState(7)
 
-    const cards = getDataForSearchbar(firstIndexOfCardToShow, lastIndexOfCardToShow)
+    const [categoryId, setCategoryId] = useState({})
 
+    const [eventsData, setEventsData] = useState({})
+    const [isLoaded, setIsLoaded] = useState(false)
+
+    //state with data for filter component
+    const [filterData, setFilterData] = useState(
+        {
+            levelIds: new Set(),
+            surfaceIds: new Set(),
+            surroundingIds: new Set(),
+            isFree: false,
+            isPaid: false
+        }
+    )
+
+    //function that is fetching data from database with filter requests
+    function filterSubmit(event){
+        event.preventDefault()
+        var levelIdsString = "levelIds="
+        var surfaceIdsString = "surfaceIds="
+        var surroundingIdsString = "surroundingIds="
+        filterData.levelIds.forEach(element => {
+            levelIdsString += element
+        });
+        filterData.surfaceIds.forEach(element => {
+            surfaceIdsString += element
+        });
+        filterData.surroundingIds.forEach(element => {
+            surroundingIdsString += element
+        });
+        var string = `https://localhost:7089/api/Events?categoryId=${categoryId}
+        &${levelIdsString}
+        &${surfaceIdsString}
+        &${surroundingIdsString}
+        &isFree=${filterData.isFree}
+        &isPaid=${filterData.isPaid}`
+
+        //dodac fetchowanie danych
+    }
+
+    //state for data for searchbar with categoryIds
+    const cards = getDataForSearchbar(firstIndexOfCardToShow, lastIndexOfCardToShow)
     const [cardsData, setCardsData] = useState(cards)
 
     function getDataForSearchbar(firstIndex, lastIndex){
@@ -25,6 +66,7 @@ export default function Searchbar(){
             )
         })
     }
+
     
     //monitorowanie zmiany
     useEffect(() => {
@@ -46,25 +88,24 @@ export default function Searchbar(){
         }
     }
 
-    const [sampleData, setSampleData] = useState({})
-    const [isLoaded, setIsLoaded] = useState(false)
-    
+    //fetchowanie danych o eventach
     useEffect(() => {
         async function fetchData() {
         await fetch("https://localhost:7089/api/Events")
             .then(res => res.json())
-            .then(testData => setSampleData(testData))
+            .then(data => setEventsData(data))
             setIsLoaded(true);
         }
         fetchData();
     }, []);
-    
-    //zapytać jak przesłać query do backendu!!!!
+
+    //fetchowanie danych o eventach z odpowiednim category id
     function handleClick(id){
+        setCategoryId(id)
         async function fetchData() {
-        await fetch(`https://localhost:7089/api/Events?id=${id}`)
+        await fetch(`https://localhost:7089/api/Events?categoryId=${id}`)
             .then(res => res.json())
-            .then(data => setSampleData(data))
+            .then(data => setEventsData(data))
             setIsLoaded(true);
         }
         fetchData();    
@@ -81,9 +122,9 @@ export default function Searchbar(){
                 <button type="button" className="right--arrow" onClick={next}><img src="/images/right.png" className="right--arrow--img" alt="img"/></button>
             </div>
             <div className="big--container">
-                <Filter />
+                <Filter value={{formData: filterData, setFormData: setFilterData}} onSubmit={filterSubmit} />
                 {isLoaded && <EventsWithFilterPage
-                    eventElements={sampleData}
+                    eventElements={eventsData}
                 />}
             </div>
         </div>

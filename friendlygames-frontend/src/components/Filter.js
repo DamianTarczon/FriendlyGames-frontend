@@ -1,37 +1,48 @@
-import React, {useState} from "react";
+import React from "react";
 
-export default function Filter() {
-    const [formData, setFormData] = useState(
-        {
-            isRecreational: false,
-            isSemi_advanced: false,
-            isAdvanced: false,
-            isGrass: false,
-            isCourt: false,
-            isSand: false,
-            isHall: false,
-            isPool: false,
-            isSynthetic: false,
-            isOthers: false,
-            isOutside: false,
-            isInside: false,
-            isFree: false,
-            isPaid: false
-        }
-    )
+export default function Filter(props) {
+    const formData = props.value.formData
+    const setFormData = props.value.setFormData
 
-function handleChange(event){
-    const {name, checked} = event.target
-    setFormData(prevFormData => {
-        return {
-            ...prevFormData,
-            [name]: checked
+    function handleChange(event){
+        const {name, checked, id} = event.target
+        let levelIds = formData.levelIds
+        let surfaceIds = formData.surfaceIds
+        let surroundingIds = formData.surroundingIds
+        if (name === "levelIds"){
+            if (checked){
+                levelIds.add(id)
+            } else {
+                levelIds.delete(id)
+            }
         }
-    })
-}
+        if (name === "surfaceIds"){
+            if (checked){
+                surfaceIds.add(id)
+            } else {
+                surfaceIds.delete(id)
+            }
+        }
+        if (name === "surroundingIds"){
+            if (checked){
+                surroundingIds.add(id)
+            } else {
+                surroundingIds.delete(id)
+            }
+        }
+        
+        setFormData(prevFormData => {
+            return {
+                ...prevFormData,
+                [name]: (name === "isFree" || name === "isPaid") ? checked : 
+                (name === "levelIds") ? levelIds : 
+                (name === "surfaceIds") ? surfaceIds : surroundingIds
+            }
+        })
+    }
 
 return (
-    <form className="filter--div">
+    <form className="filter--div" onSubmit={props.onSubmit}>
         <div className="filter--header">
             <h4>Filtruj według następujących kryteriów:</h4>
         </div>
@@ -39,30 +50,30 @@ return (
             <h4>Poziom</h4>
             <input 
                 type="checkbox" 
-                id="isRecreational" 
-                checked={formData.isRecreational}
+                id="1" 
+                checked={formData.levelIds.has("1")}
                 onChange={handleChange}
-                name="isRecreational"
+                name="levelIds"
             />
-            <label htmlFor="isRecreational">Rekreacyjny</label>
+            <label htmlFor="1">Rekreacyjny</label>
             <br />
             <input 
                 type="checkbox" 
-                id="isSemi_advanced" 
-                checked={formData.isSemi_advanced}
+                id="2" 
+                checked={formData.levelIds.has("2")}
                 onChange={handleChange}
-                name="isSemi_advanced"
+                name="levelIds"
             />
-            <label htmlFor="isSemi_advanced">Średniozaawansowany</label>
+            <label htmlFor="2">Średniozaawansowany</label>
             <br />
             <input 
                 type="checkbox" 
-                id="isAdvanced" 
-                checked={formData.isAdvanced}
+                id="3" 
+                checked={formData.levelIds.has("3")}
                 onChange={handleChange}
-                name="isAdvanced"
+                name="levelIds"
             />
-            <label htmlFor="isAdvanced">Zaawansowany</label>
+            <label htmlFor="3">Zaawansowany</label>
             <br />
             <br />
         </div>
@@ -70,66 +81,66 @@ return (
             <h4>Nawierzchnia</h4>
             <input 
                 type="checkbox" 
-                id="isGrass" 
-                checked={formData.isGrass}
+                id="1" 
+                checked={formData.surfaceIds.has("1")}
                 onChange={handleChange}
-                name="isGrass"
+                name="surfaceIds"
             />
-            <label htmlFor="isGrass">Trawa</label>
+            <label htmlFor="1">Trawa</label>
             <br />
             <input 
                 type="checkbox" 
-                id="isCourt" 
-                checked={formData.isCourt}
+                id="2" 
+                checked={formData.surfaceIds.has("2")}
                 onChange={handleChange}
-                name="isCourt"
+                name="surfaceIds"
             />
-            <label htmlFor="isCourt">Kort</label>
+            <label htmlFor="2">Kort</label>
             <br />
             <input 
                 type="checkbox" 
-                id="isSand" 
-                checked={formData.isSand}
+                id="3" 
+                checked={formData.surfaceIds.has("3")}
                 onChange={handleChange}
-                name="isSand"
+                name="surfaceIds"
             />
-            <label htmlFor="isSand">Piasek</label>
+            <label htmlFor="3">Piasek</label>
             <br />
             <input 
                 type="checkbox" 
-                id="isHall" 
-                checked={formData.isHall}
+                id="4" 
+                checked={formData.surfaceIds.has("4")}
                 onChange={handleChange}
-                name="isHall"
+                name="surfaceIds"
             />
-            <label htmlFor="isHall">Hala</label>
+            <label htmlFor="4">Hala</label>
             <br />
             <input 
                 type="checkbox" 
-                id="isPool" 
-                checked={formData.isPool}
+                id="5" 
+                checked={formData.surfaceIds.has("5")}
                 onChange={handleChange}
-                name="isPool"
+                name="surfaceIds"
             />
-            <label htmlFor="isPool">Basen</label>
+            <label htmlFor="5">Basen</label>
             <br />
             <input 
                 type="checkbox" 
-                id="isSynthetic" 
-                checked={formData.isSynthetic}
+                id="6" 
+                checked={formData.surfaceIds.has("6")}
                 onChange={handleChange}
-                name="isSynthetic"
+                name="surfaceIds"
             />
-            <label htmlFor="isSynthetic">Syntetyczna</label>
+            <label htmlFor="6">Syntetyczna</label>
             <br />
             <input 
                 type="checkbox" 
-                id="isOthers" 
-                checked={formData.isOthers}
+                id="7" 
+                checked={formData.surfaceIds.has("7")}
                 onChange={handleChange}
-                name="isOthers"
+                name="surfaceIds"
             />
-            <label htmlFor="isOthers">Inne</label>
+            <label htmlFor="7">Inne</label>
             <br />
             <br />
         </div>
@@ -137,21 +148,21 @@ return (
             <h4>Otoczenie</h4>
             <input 
                 type="checkbox" 
-                id="isOutside" 
-                checked={formData.isOutside}
+                id="1" 
+                checked={formData.surroundingIds.has("1")}
                 onChange={handleChange}
-                name="isOutside"
+                name="surroundingIds"
             />
-            <label htmlFor="isOutside">Na zewnątrz</label>
+            <label htmlFor="1">Na zewnątrz</label>
             <br />
             <input 
                 type="checkbox" 
-                id="isInside" 
-                checked={formData.isInside}
+                id="2" 
+                checked={formData.surroundingIds.has("2")}
                 onChange={handleChange}
-                name="isInside"
+                name="surroundingIds"
             />
-            <label htmlFor="isInside">Wewnątrz</label>
+            <label htmlFor="2">Wewnątrz</label>
             <br />
             <br />
         </div>
