@@ -1,13 +1,13 @@
 const data = [
         {
-            id: 2,
-            title: "piłka nożna",
-            img: "football.png"
-        },
-        {
             id: 1,
             title: "koszykówka",
             img: "ball-of-basketball.png"
+        },
+        {
+            id: 2,
+            title: "piłka nożna",
+            img: "football.png"
         },
         {
             id: 3,

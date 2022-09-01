@@ -1,11 +1,13 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import categoriesData from "../data/categoriesData";
 import Option from "../components/Option";
+import { Link } from "react-router-dom";
 
 export default function EventForm(){
 
     function createOptionsFromArray(array){
-        const optionsElements = array?.map(elements => {
+        if(array.length > 0){
+            const optionsElements = array?.map(elements => {
             return (
                 <Option 
                     key={elements.id}
@@ -14,12 +16,24 @@ export default function EventForm(){
             )
         })
         return optionsElements
+        }
     }
 
+    useEffect(() => {
+        async function surrounding() {
+        await fetch("https://localhost:7089/api/Surroundings")
+            .then(res => res.json())
+            .then(testData => setSurroundingData(testData));
+        }
+        surrounding();
+    }, []);
+
+    const [surrounding, setSurroundingData] = useState({})
+    
     const eventCategory = createOptionsFromArray(categoriesData[0].eventCategory)
     const levelCategory = createOptionsFromArray(categoriesData[0].levelCategory)
     const surfaceCategory = createOptionsFromArray(categoriesData[0].surfaceCategory)
-    const surroundingCategory = createOptionsFromArray(categoriesData[0].surroundingCategory)
+    const surroundingCategory = createOptionsFromArray(surrounding)
 
     const [eventData, setEventData] = useState({
         Name: "",
@@ -170,7 +184,7 @@ export default function EventForm(){
                         {surroundingCategory}
                     </select>
                 </div>
-                <button className="form--submit">Utwórz wydarzenie!</button>
+                <button className="form--submit"><Link to="/events">Utwórz wydarzenie!</Link></button>
             </form>
         </div>
     )

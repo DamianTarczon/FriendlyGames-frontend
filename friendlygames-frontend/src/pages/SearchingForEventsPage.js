@@ -109,7 +109,6 @@ export default function Searchbar(){
             setIsLoaded(true);
         }
         fetchData();    
-        
     }
 
     return (

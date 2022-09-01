@@ -82,16 +82,6 @@ const categoriesData = [
                 name: "Inne"
             },
         ],
-        surroundingCategory: [
-            {
-                id: 1,
-                name: "Wewnątrz"
-            },
-            {
-                id: 2,
-                name: "Na zewnątrz"
-            }
-        ]
     }
 ]
 

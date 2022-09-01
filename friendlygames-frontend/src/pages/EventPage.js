@@ -41,6 +41,8 @@ export default function EventPage(){
                     <h3 className="event--h3">{data.registrations.length} / {data.maxNumberOfPlayers}</h3>
                     <h5 className="event--h5">Cena</h5>
                     <h3 className="event--h3">{data.priceForEvent} zł</h3>
+                    <h5 className="event--h5">Dodatkowe informacje</h5>
+                    <h3 className="event--h3">{data.description}</h3>
                 </div>
                 <div className="event--mapInfo">
                     <h3>{data.street} {data.city}</h3>
