@@ -2,6 +2,7 @@ import React, {useState, useEffect} from "react";
 import SearchingCard from "../components/SearchingCard";
 import data from "../data/data.js";
 import EventsWithFilterPage from "../components/EventsWithFilterPage.js";
+import Filter from "../components/Filter";
 
 export default function Searchbar(){
     //initializing first and last index of pictures that will be displayed on the screen
@@ -45,10 +46,6 @@ export default function Searchbar(){
         }
     }
 
-    //wszystkie eventy
-    var events;
-    const [eventsData, setEventsData] = useState(events)
-
     const [sampleData, setSampleData] = useState({})
     const [isLoaded, setIsLoaded] = useState(false)
     
@@ -62,13 +59,16 @@ export default function Searchbar(){
         fetchData();
     }, []);
     
-    function getEventsDataById(id){
-        const newArray=[]
-    }
-    
+    //zapytać jak przesłać query do backendu!!!!
     function handleClick(id){
-        const newEventsData = getEventsDataById(id)
-        setEventsData(newEventsData)
+        async function fetchData() {
+        await fetch(`https://localhost:7089/api/Events?id=${id}`)
+            .then(res => res.json())
+            .then(data => setSampleData(data))
+            setIsLoaded(true);
+        }
+        fetchData();    
+        
     }
 
     return (
@@ -80,9 +80,12 @@ export default function Searchbar(){
                 </div>
                 <button type="button" className="right--arrow" onClick={next}><img src="/images/right.png" className="right--arrow--img" alt="img"/></button>
             </div>
-            {isLoaded && <EventsWithFilterPage
-                eventElements={sampleData}
-            />}
+            <div className="big--container">
+                <Filter />
+                {isLoaded && <EventsWithFilterPage
+                    eventElements={sampleData}
+                />}
+            </div>
         </div>
     )
 }

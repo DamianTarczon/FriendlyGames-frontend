@@ -3,11 +3,11 @@ import React from "react";
 export default function Footer(){
     return (
         <footer className="footer">
-            <button className="footer--button">O nas</button>
-            <button className="footer--button">FAQ</button>
-            <button className="footer--button">Polityka prywatności</button>
-            <button className="footer--button">Kontakt</button>
-            <button className="footer--button"><b>friendlygames</b></button>
+            <p className="footer--left">O nas</p>
+            <p className="footer--left">FAQ</p>
+            <p className="footer--left">Polityka prywatności</p>
+            <p className="footer--contact">Kontakt</p>
+            <p className="footer--right">friendlygames</p>
         </footer>
     )
 }

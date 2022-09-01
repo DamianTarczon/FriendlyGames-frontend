@@ -3,7 +3,6 @@ import React, {useState} from "react";
 export default function Filter() {
     const [formData, setFormData] = useState(
         {
-            location: "",
             isRecreational: false,
             isSemi_advanced: false,
             isAdvanced: false,
@@ -22,11 +21,11 @@ export default function Filter() {
     )
 
 function handleChange(event){
-    const {name, value, type, checked} = event.target
+    const {name, checked} = event.target
     setFormData(prevFormData => {
         return {
             ...prevFormData,
-            [name]: type === "checkbox" ? checked : value
+            [name]: checked
         }
     })
 }
@@ -35,22 +34,6 @@ return (
     <form className="filter--div">
         <div className="filter--header">
             <h4>Filtruj według następujących kryteriów:</h4>
-        </div>
-        <div className="filter--location">
-            <h4>Lokalizacja</h4>
-            <select 
-                id="location"
-                className="form--location"
-                value={formData.location}
-                onChange={handleChange}
-                name="location"
-            >
-                <option value="">- wybierz -</option>
-                <option value="Kraków">Kraków</option>
-                <option value="Tarnów">Tarnów</option>
-            </select>
-            <br />
-            <br />
         </div>
         <div className="filter--gameLvl">
             <h4>Poziom</h4>

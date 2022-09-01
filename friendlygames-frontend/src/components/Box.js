@@ -2,17 +2,17 @@ import React from "react";
 import {Link} from "react-router-dom"
 
 export default function Box(props) {
-    
+    var placesLeft = props.maxNumberOfPlayers - props.registrations.length;
     var message="";
-    if (props.placesLeft > 1){
-        message=`Wolne miejsca: ${props.placesLeft}`
-    } else if (props.placesLeft === 1){
-        message=`Zostało ${props.placesLeft} wolne miejsce!`
+    const date = props.startDateTime.split("T")
+
+    if (placesLeft > 1){
+        message=`Wolne miejsca: ${placesLeft}`
+    } else if (placesLeft === 1){
+        message=`Zostało ${placesLeft} wolne miejsce!`
     } else {
         message="Brak wolnych miejsc!"
     }
-
-    const date = props.startDateTime.split("T")
 
     return (
         <div className="box">
