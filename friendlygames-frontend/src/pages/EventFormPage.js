@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 import categoriesData from "../data/categoriesData";
 import Option from "../components/Option";
+import { Link } from "react-router-dom";
 
 export default function EventForm(){
 
@@ -170,7 +171,7 @@ export default function EventForm(){
                         {surroundingCategory}
                     </select>
                 </div>
-                <button className="form--submit">Utwórz wydarzenie!</button>
+                <button className="form--submit"><Link to="/events/${id}">Utwórz wydarzenie!</Link></button>
             </form>
         </div>
     )
