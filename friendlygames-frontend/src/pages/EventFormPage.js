@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 export default function EventForm(){
 
     function createOptionsFromArray(array){
-        if(array.length > 0){
+        if(isLoaded){
             const optionsElements = array?.map(elements => {
             return (
                 <Option 
@@ -19,22 +19,24 @@ export default function EventForm(){
         }
     }
 
+    const [categories, setCategories] = useState({})
+    const [isLoaded, setIsLoaded] = useState(false)
+
     useEffect(() => {
-        async function surrounding() {
-        await fetch("https://localhost:7089/api/Surroundings")
+        async function categories() {
+        await fetch("https://localhost:7089/api/Categories")
             .then(res => res.json())
-            .then(testData => setSurroundingData(testData));
+            .then(data => setCategories(data));
         }
-        surrounding();
+        categories();
+        setIsLoaded(true)
     }, []);
-
-    const [surrounding, setSurroundingData] = useState({})
     
-    const eventCategory = createOptionsFromArray(categoriesData[0].eventCategory)
-    const levelCategory = createOptionsFromArray(categoriesData[0].levelCategory)
-    const surfaceCategory = createOptionsFromArray(categoriesData[0].surfaceCategory)
-    const surroundingCategory = createOptionsFromArray(surrounding)
-
+    const eventCategory = createOptionsFromArray(categories.eventCategory)
+    const levelCategory = createOptionsFromArray(categories.levelCategory)
+    const surfaceCategory = createOptionsFromArray(categories.surfaceCategory)
+    const surroundingCategory = createOptionsFromArray(categories.surroundingCategory)
+    
     const [eventData, setEventData] = useState({
         Name: "",
         CreatorId: 1,
@@ -47,8 +49,7 @@ export default function EventForm(){
         EventCategoryId: "",
         LevelCategoryId: "",
         SurfaceCategoryId: "",
-        SurroundingCategoryId: "",
-        ImageForEvent: "basketball-box.png"
+        SurroundingCategoryId: ""
     })
 
     function handleChange(event){
