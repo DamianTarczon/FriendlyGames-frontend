@@ -1,9 +1,20 @@
 import React, {useState, useEffect} from "react";
-import categoriesData from "../data/categoriesData";
 import Option from "../components/Option";
 import { Link } from "react-router-dom";
 
 export default function EventForm(){
+    const [categories, setCategories] = useState({})
+    const [isLoaded, setIsLoaded] = useState(false)
+
+    useEffect(() => {
+        async function categories() {
+        await fetch("https://localhost:7089/api/Categories")
+            .then(res => res.json())
+            .then(data => setCategories(data));
+        }
+        categories();
+        setIsLoaded(true)
+    }, []);
 
     function createOptionsFromArray(array){
         if(isLoaded){
@@ -18,19 +29,6 @@ export default function EventForm(){
         return optionsElements
         }
     }
-
-    const [categories, setCategories] = useState({})
-    const [isLoaded, setIsLoaded] = useState(false)
-
-    useEffect(() => {
-        async function categories() {
-        await fetch("https://localhost:7089/api/Categories")
-            .then(res => res.json())
-            .then(data => setCategories(data));
-        }
-        categories();
-        setIsLoaded(true)
-    }, []);
     
     const eventCategory = createOptionsFromArray(categories.eventCategory)
     const levelCategory = createOptionsFromArray(categories.levelCategory)
