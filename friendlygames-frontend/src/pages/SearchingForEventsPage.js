@@ -25,21 +25,20 @@ export default function Searchbar(){
         }
     )
 
+    function addIdsAsString(array){
+        var string = ""
+        array.forEach(element => {
+            string += `${element},`
+        });
+        return string
+    }
+
     //function that is fetching data from database with filter requests
     function filterSubmit(event){
         event.preventDefault()
-        var levelIdsString = "levelIds="
-        var surfaceIdsString = "surfaceIds="
-        var surroundingIdsString = "surroundingIds="
-        filterData.levelIds.forEach(element => {
-            levelIdsString += element
-        });
-        filterData.surfaceIds.forEach(element => {
-            surfaceIdsString += element
-        });
-        filterData.surroundingIds.forEach(element => {
-            surroundingIdsString += element
-        });
+        var levelIdsString = `levelIds=${addIdsAsString(filterData.levelIds).slice(0,-1)}`
+        var surfaceIdsString = `surfaceIds=${addIdsAsString(filterData.surfaceIds).slice(0,-1)}`
+        var surroundingIdsString = `surroundingIds=${addIdsAsString(filterData.surroundingIds).slice(0,-1)}`
         var string = `https://localhost:7089/api/Events?categoryId=${categoryId}
         &${levelIdsString}
         &${surfaceIdsString}
@@ -122,9 +121,9 @@ export default function Searchbar(){
             </div>
             <div className="big--container">
                 <Filter value={{formData: filterData, setFormData: setFilterData}} onSubmit={filterSubmit} />
-                {isLoaded && <EventsWithFilterPage
+                { eventsData.length != 0 ? (isLoaded && <EventsWithFilterPage
                     eventElements={eventsData}
-                />}
+                />) : <div className="event--notFound">Nie znaleziono wydarzeń dla wybranych parametrów :(</div>}
             </div>
         </div>
     )

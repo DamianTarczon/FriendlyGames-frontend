@@ -188,7 +188,7 @@ return (
             <br />
             <br />
         </div>
-        <button className="filter--button">Submit</button>
+        <button className="filter--button">Filtruj</button>
     </form>
 )
 }

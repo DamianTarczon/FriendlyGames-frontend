@@ -15,10 +15,10 @@ export default function Box(props) {
     }
 
     return (
-        <div className="box">
-            <Link to={`/events/${props.id}`} state={props.id}>
+        <Link to={`/events/${props.id}`} state={props.id}>
+        <div className="box">  
             <div className="box--imgDiv">
-                <img src={`../images/${props.imageForEvent}`} alt="img" className="box--img"/>
+                <img src={`../images/${props.eventCategory.imageForBoxWithEventInfo}`} alt="img" className="box--img"/>
             </div>
             <div className="box--data">
                 <p>{date[0]} {date[1]}</p>
@@ -26,7 +26,7 @@ export default function Box(props) {
                 <p className="box--location">{props.street} {props.city}</p>
                 <p className="box--placesLeft">{message}</p>
             </div>
-            </Link>
         </div>
+        </Link>
     )
 }

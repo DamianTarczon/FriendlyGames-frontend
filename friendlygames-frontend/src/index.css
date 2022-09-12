@@ -177,6 +177,21 @@ body {
   border-bottom: 1px solid grey;
 }
 
+.filter--button {
+  margin-left: 30%;
+  margin-bottom: 8px;
+  border-radius: 8px;
+  font-size: 16px;
+  width: 40%;
+  height: 30px;
+  border: 2px solid #2B355A;
+}
+
+.filter--button:hover {
+  background-color: #2B355A;
+  color: white;
+}
+
 .form--location {
   width: 80%;
 }
@@ -191,12 +206,14 @@ body {
   display: inline-block;
   margin: 20px;
   border-radius: 5px;
-  max-width: 350px;
+  width: 550px;
+  height: 200px;
+  background-color: #f3eded;
 }
 
 .box--imgDiv {
   float: left;
-  width: 40%;
+  width: 27%;
   margin-bottom: -4px;
 }
 
@@ -213,6 +230,13 @@ body {
 .event--Announcement {
   color: lightgray;
   text-align: center;
+  font-size: x-large;
+}
+
+.event--notFound {
+  color: lightgray;
+  margin-left: 25%;
+  font-size: x-large;
 }
 
 .box--location {
@@ -356,7 +380,7 @@ body {
 }
 
 .rect2--text {
-  margin-top: 7%;
+  margin-top: 8%;
   font-size: 50px;
 }
 
