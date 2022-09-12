@@ -1,4 +1,5 @@
 import React from "react";
+import Footer from "../components/Footer.js";
 
 export default function MainView(){
     return (
@@ -22,6 +23,7 @@ export default function MainView(){
                 <h2 className="rect5--text1">Jeśli tak, to ta apka jest właśnie dla Ciebie!!!!</h2>
                 <h2 className="rect5--text2"><strong>friendlygames</strong> zostało stworzone, aby ludzie tacy jak Ty mogli bez przeszkód znaleźć towarzyszy do wspólnej zabawy. Sport łączy ludzi i my jak najbardziej się pod tym podpisujemy.</h2>
             </div>
+            <Footer /> 
         </div>
     )
 }

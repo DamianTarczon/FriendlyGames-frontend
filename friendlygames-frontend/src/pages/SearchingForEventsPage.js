@@ -3,6 +3,7 @@ import SearchingCard from "../components/SearchingCard";
 import data from "../data/data.js";
 import EventsWithFilterPage from "../components/EventsWithFilterPage.js";
 import Filter from "../components/Filter";
+import Footer from "../components/Footer.js";
 
 export default function Searchbar(){
     //initializing first and last index of pictures that will be displayed on the screen
@@ -125,6 +126,7 @@ export default function Searchbar(){
                     eventElements={eventsData}
                 />) : <div className="event--notFound">Nie znaleziono wydarzeń dla wybranych parametrów :(</div>}
             </div>
+            <Footer />
         </div>
     )
 }
