@@ -112,47 +112,83 @@ body {
 
 
 /*Registration and Login START*/
-.registrationPage, .loginPage {
-  background-color: #f3eded;
-/*Registration START*/
-/* .registrationPage {
+.registrationPage {
   display: flex;
 }
 
-.registration--image, .login--image {
-  
-.registration--imageDiv {
-  width: 40%;
-}
-
-.registration--data, .login--data {
-  position: absolute;
-  margin-left: 1150px;
-  margin-top: -1350px;
-  font-weight: bold;
-  font-size: 25px;
-  text-align: center;
-}
-
-.input {
-  line-height: 2;
-  width: 400px;
-}
-.registration--image {
-  width: 100%;
+/* .registration--data {
+  background-color: #f3eded;
+  width: 30%;
+  height: 400px;
+  padding: 50px;
+  margin-top: 100px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 5px 5px 15px -1px rgba(0,0,0,0.75);
 } */
+.registration--data {
+  text-align: center;
+  margin-top: 100px;
+}
+
+.register--label {
+  font-size: 25px;
+}
+
+.registration--firstName, .registration--lastName,
+.registration--email, .registration--password {
+  width: 40%;
+  height: 30px;
+  border-radius: 5px;
+  margin-top: -20px;
+  border: 1px solid gray;
+  padding: 5px;
+  font-family: 'Inter', sans-serif;
+  font-size: larger;
+}
+
+.registration--imageDiv {
+  width: 50%;
+}
+
+.registration--image {
+  width: 125%;
+  margin-top: -5%;
+  margin-left: -10%;
+}
 
 .registration--button, .login--button {
   display: inline-block;
-  width: 300px;
+  width: 60%;
   height: 40px;
   border: 1px solid #8F8F8F;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 30px;
   background: #2B355A;
   color: white;
-  font-size: 20px;
+  font-size: 17px;
+  margin-top: 14px;
 }
+
+/* .registration--image, .login--image {
+
+} */
+
+/* .registration--data, .login--data {
+  position: absolute;
+  margin-left: 1150px;
+  margin-top: -1350px;
+  font-weight: bold;
+  font-size: 25px;
+  text-align: center;
+} */
+
+/* .input {
+  line-height: 2;
+  width: 400px;
+} */
 /*Registration and Login END*/
 
 

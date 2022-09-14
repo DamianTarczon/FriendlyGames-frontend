@@ -34,17 +34,9 @@ export default function RegistrationPage(){
                 <img src={`/images/register-photo.png`} alt="img" className="registration--image" />
             </div>
             <div className="registration--data">
+                <h1>Zarejestruj się i dołącz do naszej społeczności!</h1>
                 <form onSubmit={handleSubmit}>
-                    <p>Email:</p>
-                    <input 
-                    type="text" 
-                    placeholder="user@example.com"
-                    onChange={handleChange}
-                    name="email"
-                    value={registerData.email}
-                    className="registration--email"
-                    />
-                    <p>Imię:</p>
+                    <p className="register--label">Imię:</p>
                     <input 
                     type="text" 
                     placeholder="Jan"
@@ -53,7 +45,7 @@ export default function RegistrationPage(){
                     value={registerData.firstName}
                     className="registration--firstName"
                     />
-                    <p>Nazwisko:</p>
+                    <p className="register--label">Nazwisko:</p>
                     <input 
                     type="text" 
                     placeholder="Kowalski"
@@ -62,7 +54,16 @@ export default function RegistrationPage(){
                     value={registerData.lastName}
                     className="registration--lastName"
                     />
-                    <p>Hasło:</p>
+                    <p className="register--label">Email:</p>
+                    <input 
+                    type="text" 
+                    placeholder="user@example.com"
+                    onChange={handleChange}
+                    name="email"
+                    value={registerData.email}
+                    className="registration--email"
+                    />
+                    <p className="register--label">Hasło:</p>
                     <input 
                     type="password" 
                     placeholder="*******"
@@ -71,6 +72,8 @@ export default function RegistrationPage(){
                     value={registerData.password}
                     className="registration--password"
                     />
+                    <br/>
+                    <br/>
                     <button className="registration--button">Zarejestruj się</button>
                 </form>
             </div>
