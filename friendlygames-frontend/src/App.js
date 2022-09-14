@@ -7,6 +7,7 @@ import Home from "./pages/Home.js";
 import RegistrationPage from "./pages/RegistrationPage.js"
 import EventFormPage from "./pages/EventFormPage.js";
 import EventPage from "./pages/EventPage.js";
+import LoginPage from './pages/LoginPage.js';
 
 export default function App() {
   return (
@@ -16,6 +17,7 @@ export default function App() {
         <Route exact path="/" element={<Home />} />
         <Route path="/events" element={<SearchingForEventsPage />} />
         <Route path='/events/:id' element={<EventPage />} />
+        <Route path='/login' element={<LoginPage />} />
         <Route path="/registration" element={<RegistrationPage />} />
         <Route path="/create-event" element={<EventFormPage />} />
       </Routes>

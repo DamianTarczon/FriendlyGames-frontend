@@ -111,21 +111,19 @@ body {
 /*Footer END*/
 
 
-/*Registration START*/
-/* .registrationPage {
+/*Registration and Login START*/
+.registrationPage, .loginPage {
   background-color: #f3eded;
 }
 
-.registration--image {
-  margin-top: -25%;
-  margin-left: -38%;
-  zoom: 1.3;
+.registration--image, .login--image {
+  
 }
 
-.registration--data {
+.registration--data, .login--data {
   position: absolute;
   margin-left: 1150px;
-  margin-top: -1250px;
+  margin-top: -1350px;
   font-weight: bold;
   font-size: 25px;
   text-align: center;
@@ -136,7 +134,7 @@ body {
   width: 400px;
 }
 
-.registration--button {
+.registration--button, .login--button {
   display: inline-block;
   width: 300px;
   height: 40px;
@@ -146,8 +144,8 @@ body {
   background: #2B355A;
   color: white;
   font-size: 20px;
-} */
-/*Registration END*/
+}
+/*Registration and Login END*/
 
 
 /* EventsViewWithFilter START */

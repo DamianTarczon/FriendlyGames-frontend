@@ -14,7 +14,7 @@ export default function Navbar(){
             </div>
             <p className="events--link"><Link to="/create-event">Utwórz wydarzenie</Link></p>
             <p className="events--link"><Link to="/events">Wydarzenia</Link></p>
-            <p className="login">Logowanie</p>
+            <p className="login"><Link to="/login">Logowanie</Link></p>
             <p className="register"><Link to="/registration">Rejestracja</Link></p>
         </nav>
     )

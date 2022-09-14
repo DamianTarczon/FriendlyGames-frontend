@@ -135,7 +135,7 @@ export default function Searchbar(){
             </div>
             <div className="big--container">
                 <Filter value={{formData: filterData, setFormData: setFilterData}} onSubmit={filterSubmit} />
-                { eventsData.length != 0 ? (isLoaded && <EventsWithFilterPage
+                { eventsData.length !== 0 ? (isLoaded && <EventsWithFilterPage
                     eventElements={eventsData}
                 />) : <div className="event--notFound">Nie znaleziono wydarzeń dla wybranych parametrów :(</div>}
             </div>
