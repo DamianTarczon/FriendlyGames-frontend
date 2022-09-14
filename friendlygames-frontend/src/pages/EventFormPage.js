@@ -71,7 +71,7 @@ export default function EventForm(){
     return (
         <div className="form-container">
             <form className="eventForm" onSubmit={handleSubmit}>
-                <label for="name">Nazwa wydarzenia</label>
+                <label for="Name">Nazwa wydarzenia</label>
                 <input
                     type="text"
                     placeholder="Nazwa wydarzenia"
@@ -81,7 +81,7 @@ export default function EventForm(){
                     value={eventData.Name}
                     id="Name"
                 />
-                <label for="startDateTime">Data rozpoczęcia</label>
+                <label for="StartDateTime">Data rozpoczęcia</label>
                 <input
                     type="datetime-local"
                     className="form--input"
@@ -90,7 +90,7 @@ export default function EventForm(){
                     value={eventData.StartDateTime}
                     id="StartDateTime"
                 />
-                <label for="endDateTime">Data zakończenia</label>
+                <label for="EndDateTime">Data zakończenia</label>
                 <input
                     type="datetime-local"
                     className="form--input"
@@ -99,7 +99,7 @@ export default function EventForm(){
                     value={eventData.EndDateTime}
                     id="EndDateTime"
                 />
-                <label for="street">Ulica</label>
+                <label for="Street">Ulica</label>
                 <input
                     type="text"
                     placeholder="Ulica"
@@ -109,7 +109,7 @@ export default function EventForm(){
                     value={eventData.Street}
                     id="Street"
                 />
-                <label for="city">Miasto</label>
+                <label for="City">Miasto</label>
                 <input
                     type="text"
                     placeholder="Miasto"
@@ -119,7 +119,7 @@ export default function EventForm(){
                     value={eventData.City}
                     id="City"
                 />
-                <label for="maxNumberOfPlayers">Maksymalna liczba graczy</label>
+                <label for="MaxNumberOfPlayers">Maksymalna liczba graczy</label>
                 <input
                     type="number"
                     placeholder="Ilość graczy"

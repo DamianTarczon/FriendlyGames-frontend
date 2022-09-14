@@ -15,14 +15,16 @@ export default function LoginPage(){
         })
     }
 
-    function handleSubmit(event) {
+    async function handleSubmit(event) {
         event.preventDefault()
         const userData = {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
+            method: 'OPTIONS',
+            headers: { 'Content-Type': 'application/json'},
             body: JSON.stringify(loginData)
         };
-        fetch('https://localhost:7089/api/Users/login', userData)
+        await fetch('https://localhost:7089/api/Users/login', userData)
+        .then(res => res.json())
+        .then(data => localStorage.setItem('token', data.token))
     }
 
     return (
