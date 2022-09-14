@@ -111,20 +111,49 @@ body {
 /*Footer END*/
 
 
+/*Registration and Login START*/
+.registrationPage, .loginPage {
+  background-color: #f3eded;
 /*Registration START*/
 /* .registrationPage {
   display: flex;
 }
 
+.registration--image, .login--image {
+  
 .registration--imageDiv {
   width: 40%;
 }
 
+.registration--data, .login--data {
+  position: absolute;
+  margin-left: 1150px;
+  margin-top: -1350px;
+  font-weight: bold;
+  font-size: 25px;
+  text-align: center;
+}
+
+.input {
+  line-height: 2;
+  width: 400px;
+}
 .registration--image {
   width: 100%;
 } */
 
-/*Registration END*/
+.registration--button, .login--button {
+  display: inline-block;
+  width: 300px;
+  height: 40px;
+  border: 1px solid #8F8F8F;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 30px;
+  background: #2B355A;
+  color: white;
+  font-size: 20px;
+}
+/*Registration and Login END*/
 
 
 /* EventsViewWithFilter START */
