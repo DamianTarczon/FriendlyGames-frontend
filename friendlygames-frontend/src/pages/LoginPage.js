@@ -27,26 +27,28 @@ export default function LoginPage(){
 
     return (
         <div className="loginPage">
-            <img src={`/images/register-photo.png`} alt="img" className="login--image" />
+            <div className="login--imageDiv">
+                <img src={`/images/register-photo.png`} alt="img" className="login--image" />
+            </div>
             <div className="login--data">
                 <form onSubmit={handleSubmit}>
-                    <p>Adres e-mail:</p>
+                    <p className="login--label">Adres e-mail:</p>
                     <input 
                     type="text"
                     placeholder="user@example.com"
                     onChange={handleChange}
                     name="email" 
-                    value={userData.email}
-                    className="input" 
+                    value={loginData.email}
+                    className="login--email" 
                     />
-                    <p>Hasło:</p>
+                    <p className="login--label">Hasło:</p>
                     <input 
                     type="password" 
                     placeholder="*******"
                     onChange={handleChange}
                     name="password"
-                    value={userData.password}
-                    className="input"
+                    value={loginData.password}
+                    className="login--password"
                     />
                     <button className="login--button">Zaloguj się</button> 
                 </form>
