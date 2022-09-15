@@ -1,6 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import { useNavigate } from "react-router-dom";
+import { UserContext } from "../components/UserContext.js"
 
 export default function LoginPage(){
+    const navigate = useNavigate()
+    const [token, setToken] = useContext(UserContext)
+    
 
     const [loginData, setLoginData] = useState({
         email: "",
@@ -25,7 +30,9 @@ export default function LoginPage(){
         };
         await fetch('https://localhost:7089/api/Users/login', userData)
         .then(res => res.json())
-        .then(data => localStorage.setItem('token', data.token))
+        .then(data => setToken(data.token))
+        .then(navigate("/events"))
+        .then(localStorage.setItem('token', token))
     }
 
     return (

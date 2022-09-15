@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link, useMatch, useResolvedPath } from "react-router-dom"
+import { UserContext } from "./UserContext";
 
 export default function Navbar(){
+    const [token] = useContext(UserContext)
 
     function CustomLink({to, children, ...props}){
         const resolvedPath = useResolvedPath(to)
@@ -18,18 +20,15 @@ export default function Navbar(){
     return (
         <nav className="navbar">
             <Link to="/" className="site--title">friendlygames</Link>
-            {/* <div className="searching--bar">
-                <button type="button" className="button--where" >Gdziekolwiek</button>
-                <button type="button" className="button--when" >Kiedy</button>
-                <button className="loop">
-                    <i className="fa fa-search"></i>
-                </button>
-            </div> */}
             <ul>
                 <CustomLink to="/create-event">Utwórz wydarzenie</CustomLink>
                 <CustomLink to="/events">Wydarzenia</CustomLink>
-                <CustomLink to="/login">Logowanie</CustomLink>
-                <CustomLink to="/registration">Rejestracja</CustomLink>
+                {!token ? 
+                <>
+                    <CustomLink to="/login">Logowanie</CustomLink>
+                    <CustomLink to="/registration">Rejestracja</CustomLink>
+                </> : 
+                <CustomLink to="/logout">Wyloguj się</CustomLink>}
             </ul>
         </nav>
     )

@@ -1,12 +1,18 @@
-import React, {useState, useEffect} from "react";
+import React, {useState, useEffect, useContext} from "react";
 import Option from "../components/Option";
 import { Link, useNavigate } from "react-router-dom";
+import { UserContext } from "../components/UserContext";
 
 export default function EventForm(){
+    const [token, setToken] = useContext(UserContext)
     const navigate = useNavigate()
-    if(!localStorage.getItem('token')){
-        navigate("/login")
-    }
+
+    useEffect(() => {
+        if(!token){
+            navigate("/login")
+        }
+    }, [])
+    
 
     const [categories, setCategories] = useState({})
     const [isLoaded, setIsLoaded] = useState(false)
