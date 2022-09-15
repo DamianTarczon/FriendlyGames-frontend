@@ -31,8 +31,8 @@ export default function LoginPage(){
         await fetch('https://localhost:7089/api/Users/login', userData)
         .then(res => res.json())
         .then(data => setToken(data.token))
-        .then(navigate("/events"))
         .then(localStorage.setItem('token', token))
+        .then(navigate("/events"))
     }
 
     return (
