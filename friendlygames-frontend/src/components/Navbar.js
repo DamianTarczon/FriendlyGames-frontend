@@ -1,21 +1,36 @@
 import React from "react";
-import {Link} from "react-router-dom"
+import { Link, useMatch, useResolvedPath } from "react-router-dom"
 
 export default function Navbar(){
+
+    function CustomLink({to, children, ...props}){
+        const resolvedPath = useResolvedPath(to)
+        const isActive = useMatch({ path: resolvedPath.pathname, end: true })
+        return (
+            <li className={isActive ? "active" : ""}>
+                <Link to={to} {...props}>
+                    {children}
+                </Link>
+            </li>
+        )
+    }
+
     return (
         <nav className="navbar">
-            <h2 className="app--name"><Link to="/">friendlygames</Link></h2>
-            <div className="searching--bar">
+            <Link to="/" className="site--title">friendlygames</Link>
+            {/* <div className="searching--bar">
                 <button type="button" className="button--where" >Gdziekolwiek</button>
                 <button type="button" className="button--when" >Kiedy</button>
                 <button className="loop">
                     <i className="fa fa-search"></i>
                 </button>
-            </div>
-            <p className="events--link"><Link to="/create-event">Utwórz wydarzenie</Link></p>
-            <p className="events--link"><Link to="/events">Wydarzenia</Link></p>
-            <p className="login"><Link to="/login">Logowanie</Link></p>
-            <p className="register"><Link to="/registration">Rejestracja</Link></p>
+            </div> */}
+            <ul>
+                <CustomLink to="/create-event">Utwórz wydarzenie</CustomLink>
+                <CustomLink to="/events">Wydarzenia</CustomLink>
+                <CustomLink to="/login">Logowanie</CustomLink>
+                <CustomLink to="/registration">Rejestracja</CustomLink>
+            </ul>
         </nav>
     )
 }

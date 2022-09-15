@@ -8,12 +8,49 @@ body {
 /* Navbar section START */
 .navbar {
   display: flex;
-  align-items: center;
-  height: 100px;
-  background-color: #D9D9D9;
+  align-items: stretch;
+  background-color: #F0F8FF;
+  color: #2B355A;
+  justify-content: space-between;
+  gap: 50px;
+  padding: 0 2rem;
+  font-size: 25px;
 }
 
-.app--name{
+.site--title {
+  font-size: 50px;
+  margin-left: 40px;
+}
+
+.navbar ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.navbar a {
+  color: inherit;
+  text-decoration: none;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+.navbar li.active {
+  background-color: #2B355A;
+  color: white;
+}
+
+.navbar li:hover {
+  background-color: white;
+  color: #2B355A;
+}
+
+/* .app--name{
   color: #2B355A;
   padding-left: 50px;
   font-size: 40px;
@@ -36,7 +73,7 @@ body {
 .button--when,
 .loop {
   font-size: 25px;
-}
+} */
 /* Navbar section END */
 
 
@@ -145,7 +182,6 @@ body {
 
 .registration--image, .login--image {
   width: 125%;
-  margin-top: -5%;
   margin-left: -10%;
 }
 
@@ -274,7 +310,11 @@ body {
 }
 
 .eventForm {
-  background-color: #f3eded;
+  /* background-color: #f3eded; */
+  /* background-color: #F0F8FF; */
+  background-color: #2B355A;
+  color: white;
+  font-size: 22px;
   width: 60%;
   padding: 50px;
   border-radius: 10px;
@@ -314,6 +354,8 @@ body {
 
 .form--submit {
   background-color: #d6c9c9;
+  /* background-color: #2B355A; */
+  /* color: white; */
   border: none;
   border-radius: 10px;
   box-shadow: 0px 0px 2px 2px #d6c9c9;
