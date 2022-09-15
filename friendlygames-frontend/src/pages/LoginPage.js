@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 
 export default function LoginPage(){
+
     const [loginData, setLoginData] = useState({
         email: "",
         password: ""
@@ -52,7 +53,9 @@ export default function LoginPage(){
                     value={loginData.password}
                     className="login--password"
                     />
-                    <button className="login--button">Zaloguj się</button> 
+                    <br/>
+                    <br/>
+                    <button className="login--button">Zaloguj się</button>
                 </form>
             </div>
         </div>
