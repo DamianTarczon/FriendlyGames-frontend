@@ -5,10 +5,25 @@ import { UserContext } from "./UserContext";
 export default function Navbar(){
     const [token] = useContext(UserContext)
     const [user, setUser] = useState(null)
+    const [isUser, setIsUser] = useState(false)
+    const [userName, setUserName] = useState(null)
+
+    function getUserData(array){
+        array.forEach(element => {
+            if(element.type === "firstName"){
+                setUserName(element.value)
+            }
+        });
+    }
+
+    useEffect(() => {
+        if(isUser){
+            getUserData(user)
+        }
+    }, [user])
 
     useEffect(() => {
         if(token){
-            console.log("ok")
             const headers = {
                 method: 'GET',
                 headers: { 
@@ -21,11 +36,10 @@ export default function Navbar(){
                 await fetch('https://localhost:7089/api/Users/GetUser', headers)
                 .then(res => res.json())
                 .then(data => setUser(data))
+                .then(setIsUser(true))
             }
             fetchData();
-            console.log(user)
         }
-        console.log("not ok")
     }, [token])
 
     
@@ -53,8 +67,8 @@ export default function Navbar(){
                     <CustomLink to="/registration">Rejestracja</CustomLink>
                 </> : 
                 <>
-                {user && <p>Witaj!!</p>}
                 <CustomLink to="/logout">Wyloguj się</CustomLink>
+                {isUser && <p>Witaj {userName}</p>}
                 </>}
             </ul>
         </nav>
