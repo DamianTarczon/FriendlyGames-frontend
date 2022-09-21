@@ -1,46 +1,47 @@
 import React, {useState, useEffect} from "react";
 import Option from "../components/Option";
-import { Link} from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export default function EventForm(){
+    const navigate = useNavigate()
     const [userData, setUserData] = useState(null)
-    const [categories, setCategories] = useState({})
-    const [isLoaded, setIsLoaded] = useState(false)
+    const [categories, setCategories] = useState(null)
+    const [token, setToken] = useState(null)
+    const [eventCategory, setEventCategory] = useState(null)
+    const [levelCategory, setLevelCategory] = useState(null)
+    const [surfaceCategory, setSurfaceCategory] = useState(null)
+    const [surroundingCategory, setSurroundingCategory] = useState(null)
 
     useEffect(() => {
+        setToken(localStorage.getItem('token'))
+        setUserData(JSON.parse(localStorage.getItem('user')))
         async function categories() {
         await fetch("https://localhost:7089/api/Categories")
             .then(res => res.json())
             .then(data => setCategories(data));
         }
         categories();
-        setIsLoaded(true)
-        
     }, []);
 
     useEffect(() => {
-        setUserData(JSON.parse(localStorage.getItem('user')))
-        
-    }, [])
+        if(categories){
+        setEventCategory(createOptionsFromArray(categories.value.eventCategory))
+        setLevelCategory(createOptionsFromArray(categories.value.levelCategory))
+        setSurfaceCategory(createOptionsFromArray(categories.value.surfaceCategory))
+        setSurroundingCategory(createOptionsFromArray(categories.value.surroundingCategory))
+        }
+    }, [categories])
 
     function createOptionsFromArray(array){
-        if(isLoaded){
-            const optionsElements = array?.map(elements => {
-            return (
-                <Option 
-                    key={elements.id}
-                    {...elements}
-                />
-            )
-        })
+        const optionsElements = array?.map(elements => {
+        return (
+            <Option 
+                key={elements.id}
+                {...elements}
+            />
+        )})
         return optionsElements
-        }
     }
-    
-    const eventCategory = createOptionsFromArray(categories.eventCategory)
-    const levelCategory = createOptionsFromArray(categories.levelCategory)
-    const surfaceCategory = createOptionsFromArray(categories.surfaceCategory)
-    const surroundingCategory = createOptionsFromArray(categories.surroundingCategory)
     
     const [eventData, setEventData] = useState({
         Name: "",
@@ -69,10 +70,15 @@ export default function EventForm(){
         event.preventDefault();
         const requestOptions = {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
+            headers: { 
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`,
+                'Credentials': 'include'
+            },
             body: JSON.stringify(eventData)
         };
         fetch('https://localhost:7089/api/Events', requestOptions)
+        navigate("/events")
     }
 
     return (
@@ -190,7 +196,7 @@ export default function EventForm(){
                         {surroundingCategory}
                     </select>
                 </div>
-                <button className="form--submit"><Link to="/events">Utwórz wydarzenie!</Link></button>
+                <button className="form--submit">Utwórz wydarzenie!</button>
             </form>
         </div>
     )

@@ -67,6 +67,7 @@ export default function LoginPage(){
 
 
     useEffect(() => {
+        console.log(token)
         const headers = {
             method: 'GET',
             headers: { 
@@ -78,7 +79,6 @@ export default function LoginPage(){
         async function fetchData() {
             await fetch('https://localhost:7089/api/Users/GetUser', headers)
             .then(res => res.json())
-            // .then(data => console.log(data))
             .then(data => setUserDataFromApi(data))
             //zapisać dane o userze w useState i stamtad useEffectem zapisac dane w localStorage !!!!!!!!!!!!!
         }
