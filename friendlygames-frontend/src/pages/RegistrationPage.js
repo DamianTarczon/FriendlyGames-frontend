@@ -6,6 +6,7 @@ export default function RegistrationPage(){
         firstName: "",
         lastName: "",
         password: "",
+        passwordConfirm: "",
         roles: ["User"]
     })
 
@@ -20,6 +21,11 @@ export default function RegistrationPage(){
 
     function handleSubmit(event) {
         event.preventDefault()
+
+        if(registerData.password !== registerData.passwordConfirm){
+            return setError("Hasła muszą być takie same")
+        }
+        setError("")
         const userData = {
             method: 'OPTIONS',
             headers: { 'Content-Type': 'application/json' },
@@ -70,6 +76,15 @@ export default function RegistrationPage(){
                     onChange={handleChange}
                     name="password"
                     value={registerData.password}
+                    className="registration--password"
+                    />
+                    <p className="register--label">Potwierdź hasło:</p>
+                    <input 
+                    type="password" 
+                    placeholder="*******"
+                    onChange={handleChange}
+                    name="passwordConfirm"
+                    value={registerData.passwordConfirm}
                     className="registration--password"
                     />
                     <br/>

@@ -4,14 +4,14 @@ import { Link, useNavigate } from "react-router-dom";
 import { UserContext } from "../components/UserContext";
 
 export default function EventForm(){
-    const [token, setToken] = useContext(UserContext)
-    const navigate = useNavigate()
+    // const [token, setToken] = useContext(UserContext)
+    // const navigate = useNavigate()
 
-    useEffect(() => {
-        if(!token){
-            navigate("/login")
-        }
-    }, [])
+    // useEffect(() => {
+    //     if(!token){
+    //         navigate("/login")
+    //     }
+    // }, [])
     
 
     const [categories, setCategories] = useState({})
