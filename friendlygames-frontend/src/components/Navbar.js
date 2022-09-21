@@ -1,33 +1,14 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Link, useMatch, useResolvedPath } from "react-router-dom"
-// import { UserContext } from "./UserContext";
+import { UserContext } from "./UserContext";
 
 export default function Navbar(){
-    const [token, setToken] = useState(null)
-    // const token = localStorage.getItem('token')
-    // const [user, setUser] = useState(null)
-    // const [isUser, setIsUser] = useState(false)
-    // const [userName, setUserName] = useState(null)
-
-    // function getUserData(array){
-    //     array.forEach(element => {
-    //         if(element.type === "firstName"){
-    //             setUserName(element.value)
-    //         }
-    //     });
-    // }
-
-    // useEffect(() => {
-    //     if(isUser){
-    //         getUserData(user)
-    //     }
-    // }, [user])
+    const [userData, setUserData] = useState(null)
+    const {user} = useContext(UserContext)
 
     useEffect(() => {
-        setToken(localStorage.getItem('token'))
-    },[])
-
-    console.log(token)
+        setUserData(JSON.parse(localStorage.getItem('user')))
+    },[user])
     
     function CustomLink({to, children, ...props}){
         const resolvedPath = useResolvedPath(to)
@@ -45,16 +26,16 @@ export default function Navbar(){
         <nav className="navbar">
             <Link to="/" className="site--title">friendlygames</Link>
             <ul>
-                <CustomLink to="/create-event">Utwórz wydarzenie</CustomLink>
+                {userData && <CustomLink to="/create-event">Utwórz wydarzenie</CustomLink>}
                 <CustomLink to="/events">Wydarzenia</CustomLink>
-                {!token ? 
+                {!userData ? 
                 <>
                     <CustomLink to="/login">Logowanie</CustomLink>
                     <CustomLink to="/registration">Rejestracja</CustomLink>
                 </> : 
                 <>
                 <CustomLink to="/logout">Wyloguj się</CustomLink>
-                {/* {isUser && <p>Witaj {userName}</p>} */}
+                <p>Witaj {userData.firstName}</p>
                 </>}
             </ul>
         </nav>

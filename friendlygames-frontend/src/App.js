@@ -14,7 +14,7 @@ import PrivateRoute from './components/PrivateRoute.js';
 export default function App() {
   const [user, setUser] = useState(localStorage.getItem('user'))
 
-  const value = useMemo(() => ([user, setUser]), [user, setUser]);
+  const value = useMemo(() => ({user, setUser}), [user, setUser]);
 
   return (
     <div>

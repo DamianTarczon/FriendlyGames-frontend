@@ -1,7 +1,9 @@
 import React, { useState, useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { UserContext } from "../components/UserContext";
 
 export default function LoginPage(){
+    
     const navigate = useNavigate()
     const [userDataFromApi, setUserDataFromApi] = useState(null)
     const [token, setToken] = useState(localStorage.getItem('token'))
@@ -10,15 +12,16 @@ export default function LoginPage(){
         email: "",
         password: ""
     })
+    const {setUser} = useContext(UserContext)
 
-    function getUserData(array, type){
-        array.forEach(element => {
-            if(element.type === type){
-                console.log(element.value)
-                return element.value
-            }
-        });
-    }
+    // function getUserData(array, type){
+    //     array.forEach(element => {
+    //         if(element.type === type){
+    //             console.log(element.value)
+    //             return element.value
+    //         }
+    //     });
+    // }
 
 
     useEffect(() => {
@@ -26,21 +29,40 @@ export default function LoginPage(){
             var userEmail = ""
             userDataFromApi.forEach(element => {
                 if(element.type === "userEmail"){
-                    console.log(element.value)
                     userEmail = element.value
                 }
             });
+
+            var userId = ""
+            userDataFromApi.forEach(element => {
+                if(element.type === "id"){
+                    userId = element.value
+                }
+            });
+
+            var userFirstName = ""
+            userDataFromApi.forEach(element => {
+                if(element.type === "firstName"){
+                    userFirstName = element.value
+                }
+            });
+
+            var userLastName = ""
+            userDataFromApi.forEach(element => {
+                if(element.type === "lastName"){
+                    userLastName = element.value
+                }
+            });
             const userData = {
-                // email: `${getUserData(userDataFromApi, "userEmail")}`,
                 email: userEmail,
-                id: `${getUserData(userDataFromApi, "id")}`,
-                firstName: `${getUserData(userDataFromApi, "firstName")}`,
-                lastName: `${getUserData(userDataFromApi, "lastName")}`
+                id: userId,
+                firstName: userFirstName,
+                lastName: userLastName
             }
-            console.log(userData)
-        }
-        console.log('ok')
-        
+            localStorage.setItem('user', JSON.stringify(userData))
+            setUser(userData)
+            navigate("/events")
+        }   
     }, [userDataFromApi])
 
 

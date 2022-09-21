@@ -1,19 +1,9 @@
-import React, {useState, useEffect, useContext} from "react";
+import React, {useState, useEffect} from "react";
 import Option from "../components/Option";
-import { Link, useNavigate } from "react-router-dom";
-import { UserContext } from "../components/UserContext";
+import { Link} from "react-router-dom";
 
 export default function EventForm(){
-    // const [token, setToken] = useContext(UserContext)
-    // const navigate = useNavigate()
-
-    // useEffect(() => {
-    //     if(!token){
-    //         navigate("/login")
-    //     }
-    // }, [])
-    
-
+    const [userData, setUserData] = useState(null)
     const [categories, setCategories] = useState({})
     const [isLoaded, setIsLoaded] = useState(false)
 
@@ -25,7 +15,13 @@ export default function EventForm(){
         }
         categories();
         setIsLoaded(true)
+        
     }, []);
+
+    useEffect(() => {
+        setUserData(JSON.parse(localStorage.getItem('user')))
+        
+    }, [])
 
     function createOptionsFromArray(array){
         if(isLoaded){
@@ -48,7 +44,7 @@ export default function EventForm(){
     
     const [eventData, setEventData] = useState({
         Name: "",
-        CreatorId: 1,
+        CreatorId: userData && userData.id,
         StartDateTime: "",
         EndDateTime: "",
         Street: "",
