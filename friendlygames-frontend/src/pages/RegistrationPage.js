@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 
 export default function RegistrationPage(){
+    const [error, setError] = useState("")
     const [registerData, setRegisterData] = useState({
         email: "",
         firstName: "",
@@ -41,6 +42,7 @@ export default function RegistrationPage(){
             </div>
             <div className="registration--data">
                 <h1>Zarejestruj się i dołącz do naszej społeczności!</h1>
+                {error && <h2 className="error--message">{error}</h2>}
                 <form onSubmit={handleSubmit}>
                     <p className="register--label">Imię:</p>
                     <input 
@@ -50,6 +52,7 @@ export default function RegistrationPage(){
                     name="firstName"
                     value={registerData.firstName}
                     className="registration--firstName"
+                    required
                     />
                     <p className="register--label">Nazwisko:</p>
                     <input 
@@ -59,15 +62,17 @@ export default function RegistrationPage(){
                     name="lastName"
                     value={registerData.lastName}
                     className="registration--lastName"
+                    required
                     />
                     <p className="register--label">Email:</p>
                     <input 
-                    type="text" 
+                    type="email" 
                     placeholder="user@example.com"
                     onChange={handleChange}
                     name="email"
                     value={registerData.email}
                     className="registration--email"
+                    required
                     />
                     <p className="register--label">Hasło:</p>
                     <input 
@@ -77,6 +82,7 @@ export default function RegistrationPage(){
                     name="password"
                     value={registerData.password}
                     className="registration--password"
+                    required
                     />
                     <p className="register--label">Potwierdź hasło:</p>
                     <input 
@@ -86,6 +92,7 @@ export default function RegistrationPage(){
                     name="passwordConfirm"
                     value={registerData.passwordConfirm}
                     className="registration--password"
+                    required
                     />
                     <br/>
                     <br/>
