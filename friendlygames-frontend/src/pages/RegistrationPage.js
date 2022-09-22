@@ -107,6 +107,13 @@ export default function RegistrationPage(){
                     required
                     />
                     <p className="register--label">Hasło:</p>
+                    {pwdRequisite && 
+                    <PWDRequisite 
+                        capsLetterFlag={checks.capsLetterCheck ? "valid" : "invalid"} 
+                        numberFlag={checks.numberCheck ? "valid" : "invalid"}
+                        pwdLengthFlag={checks.pwdLengthCheck ? "valid" : "invalid"}
+                        specialCharFlag={checks.specialCharCheck ? "valid" : "invalid"}
+                    />}
                     <input 
                     type="password" 
                     placeholder="*******"
@@ -121,13 +128,6 @@ export default function RegistrationPage(){
                     title="Musi zawierać przynajmniej jedną dużą literę, jeden znak specjalny, jeden numer i przynajmniej 8 znaków"
                     required
                     />
-                    {pwdRequisite && 
-                    <PWDRequisite 
-                        capsLetterFlag={checks.capsLetterCheck ? "valid" : "invalid"} 
-                        numberFlag={checks.numberCheck ? "valid" : "invalid"}
-                        pwdLengthFlag={checks.pwdLengthCheck ? "valid" : "invalid"}
-                        specialCharFlag={checks.specialCharCheck ? "valid" : "invalid"}
-                    />}
                     <p className="register--label">Potwierdź hasło:</p>
                     <input 
                     type="password" 
