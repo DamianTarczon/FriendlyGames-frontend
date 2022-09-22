@@ -49,31 +49,6 @@ body {
   background-color: white;
   color: #2B355A;
 }
-
-/* .app--name{
-  color: #2B355A;
-  padding-left: 50px;
-  font-size: 40px;
-  margin-right: auto;
-}
-
-.searching--bar{
-  margin-right: auto;
-  text-align: center;
-}
-
-.login, .register, .events--link {
-  float: right;
-  color: #2B355A;
-  padding-right: 40px;
-  font-size: 175%;
-}
-
-.button--where,
-.button--when,
-.loop {
-  font-size: 25px;
-} */
 /* Navbar section END */
 
 
@@ -202,6 +177,23 @@ body {
   margin-top: 14px;
 }
 
+.valid {
+  color: green;
+}
+.valid:before {
+  position: relative;
+  left: -5px;
+  content: "✔";
+}
+
+.invalid {
+  color: red;
+}
+.invalid:before {
+  position: relative;
+  left: -5px;
+  content: "✖";
+}
 
 /*Registration and Login END*/
 
@@ -264,7 +256,13 @@ body {
   border-radius: 5px;
   width: 550px;
   height: 200px;
-  background-color: #f3eded;
+  color: #2B355A;
+  
+  /* background-color: #f3eded; */
+}
+
+.box:hover {
+  box-shadow: 5px 5px 15px -1px rgba(0,0,0,0.75);
 }
 
 .box--imgDiv {
@@ -375,7 +373,9 @@ body {
 
 /* EventPage Start (1 class are in EventForm) */
 .eventPage--div {
-  background-color: #f3eded;
+  /* background-color: #f3eded; */
+  background-color: #F0F8FF;
+  color: #2B355A;
   width: 60%;
   padding: 50px;
   border-radius: 10px;

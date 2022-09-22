@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import PWDRequisite from "../passwordRequirements/PWDRequisite";
 
 export default function RegistrationPage(){
     const [error, setError] = useState("")
@@ -10,6 +11,13 @@ export default function RegistrationPage(){
         passwordConfirm: "",
         roles: ["User"]
     })
+    const [pwdRequisite, setPwdRequisite] = useState(false)
+    const [checks, setChecks] = useState({
+        capsLetterCheck: false,
+        numberCheck: false,
+        pwdLengthCheck: false,
+        specialCharCheck: false,
+    })
 
     function handleChange(event) {
         setRegisterData(prevFormData => {
@@ -20,6 +28,29 @@ export default function RegistrationPage(){
         })
     }
 
+    function handleOnFocus(){
+        setPwdRequisite(true)
+    }
+
+    function handleOnBlur() {
+        setPwdRequisite(false)
+    }
+
+    function handleKeyUp(event){
+        const { value } = event.target
+        const capsLetterCheck = /[A-Z]/.test(value)
+        const numberCheck = /[0-9]/.test(value)
+        const pwdLengthCheck = value.length >= 8
+        const specialCharCheck = /[!@#$%^&*]/.test(value)
+        console.log(capsLetterCheck)
+        setChecks({
+            capsLetterCheck,
+            numberCheck,
+            pwdLengthCheck,
+            specialCharCheck
+        })
+    }
+
     function handleSubmit(event) {
         event.preventDefault()
 
@@ -27,6 +58,7 @@ export default function RegistrationPage(){
             return setError("Hasła muszą być takie same")
         }
         setError("")
+        
         const userData = {
             method: 'OPTIONS',
             headers: { 'Content-Type': 'application/json' },
@@ -79,11 +111,23 @@ export default function RegistrationPage(){
                     type="password" 
                     placeholder="*******"
                     onChange={handleChange}
+                    onFocus={handleOnFocus}
+                    onBlur={handleOnBlur}
+                    onKeyUp={handleKeyUp}
                     name="password"
                     value={registerData.password}
                     className="registration--password"
+                    pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                    title="Musi zawierać przynajmniej jedną dużą literę, jeden znak specjalny, jeden numer i przynajmniej 8 znaków"
                     required
                     />
+                    {pwdRequisite && 
+                    <PWDRequisite 
+                        capsLetterFlag={checks.capsLetterCheck ? "valid" : "invalid"} 
+                        numberFlag={checks.numberCheck ? "valid" : "invalid"}
+                        pwdLengthFlag={checks.pwdLengthCheck ? "valid" : "invalid"}
+                        specialCharFlag={checks.specialCharCheck ? "valid" : "invalid"}
+                    />}
                     <p className="register--label">Potwierdź hasło:</p>
                     <input 
                     type="password" 

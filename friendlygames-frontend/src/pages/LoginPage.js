@@ -14,51 +14,15 @@ export default function LoginPage(){
     })
     const {setUser} = useContext(UserContext)
 
-    // function getUserData(array, type){
-    //     array.forEach(element => {
-    //         if(element.type === type){
-    //             console.log(element.value)
-    //             return element.value
-    //         }
-    //     });
-    // }
-
-
     useEffect(() => {
         if(userDataFromApi){
-            var userEmail = ""
-            userDataFromApi.forEach(element => {
-                if(element.type === "userEmail"){
-                    userEmail = element.value
-                }
-            });
-
-            var userId = ""
-            userDataFromApi.forEach(element => {
-                if(element.type === "id"){
-                    userId = element.value
-                }
-            });
-
-            var userFirstName = ""
-            userDataFromApi.forEach(element => {
-                if(element.type === "firstName"){
-                    userFirstName = element.value
-                }
-            });
-
-            var userLastName = ""
-            userDataFromApi.forEach(element => {
-                if(element.type === "lastName"){
-                    userLastName = element.value
-                }
-            });
             const userData = {
-                email: userEmail,
-                id: userId,
-                firstName: userFirstName,
-                lastName: userLastName
-            }
+                    email: userDataFromApi.email,
+                    id: userDataFromApi.id,
+                    firstName: userDataFromApi.firstName,
+                    lastName: userDataFromApi.lastName
+                }
+
             localStorage.setItem('user', JSON.stringify(userData))
             setUser(userData)
             navigate("/events")
@@ -67,7 +31,6 @@ export default function LoginPage(){
 
 
     useEffect(() => {
-        console.log(token)
         const headers = {
             method: 'GET',
             headers: { 
@@ -80,7 +43,6 @@ export default function LoginPage(){
             await fetch('https://localhost:7089/api/Users/GetUser', headers)
             .then(res => res.json())
             .then(data => setUserDataFromApi(data))
-            //zapisać dane o userze w useState i stamtad useEffectem zapisac dane w localStorage !!!!!!!!!!!!!
         }
         fetchData()
     }, [token])
