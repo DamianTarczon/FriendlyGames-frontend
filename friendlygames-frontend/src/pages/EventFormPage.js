@@ -45,13 +45,13 @@ export default function EventForm(){
     
     const [eventData, setEventData] = useState({
         Name: "",
-        CreatorId: userData && userData.id,
+        ApiUserId: "",
         StartDateTime: "",
         EndDateTime: "",
         Street: "",
         City: "",
         MaxNumberOfPlayers: "",
-        PriceForEvent: "",
+        PriceForEvent: 0,
         EventCategoryId: "",
         LevelCategoryId: "",
         SurfaceCategoryId: "",
@@ -68,6 +68,8 @@ export default function EventForm(){
 
     const handleSubmit = (event) => {
         event.preventDefault();
+        //set user id for event
+        eventData.ApiUserId = userData.id
         const requestOptions = {
             method: 'POST',
             headers: { 
