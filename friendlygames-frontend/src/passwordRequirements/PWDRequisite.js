@@ -5,17 +5,15 @@ export default function PWDRequisite({
     numberFlag,
     pwdLengthFlag,
     specialCharFlag
-}
-)
+})
 {
-    console.log(capsLetterFlag)
     return (
-        <div id="message">
+        <div className="message">
             <h3>Hasło musi zawierać:</h3>
-            <p class={capsLetterFlag}><b>Dużą</b> literę</p>
-            <p class={numberFlag}><b>Numer</b></p>
-            <p class={specialCharFlag}>Znak <b>specjalny</b></p>
-            <p class={pwdLengthFlag}>Przynajmniej <b>8 znaków</b></p>
+            <p className={capsLetterFlag}><b>Dużą</b> literę</p>
+            <p className={numberFlag}><b>Numer</b></p>
+            <p className={specialCharFlag}>Znak <b>specjalny</b></p>
+            <p className={pwdLengthFlag}>Przynajmniej <b>8 znaków</b></p>
         </div>
     )
 }
