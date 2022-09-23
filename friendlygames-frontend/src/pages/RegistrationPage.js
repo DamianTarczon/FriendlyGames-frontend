@@ -124,7 +124,7 @@ export default function RegistrationPage(){
                     name="password"
                     value={registerData.password}
                     className="registration--password"
-                    pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                    pattern="(?=.*\d)(?=.*[!@#$%^&*])(?=.*[A-Z]).{8,}"
                     title="Musi zawierać przynajmniej jedną dużą literę, jeden znak specjalny, jeden numer i przynajmniej 8 znaków"
                     required
                     />
