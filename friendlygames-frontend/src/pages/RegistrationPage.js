@@ -42,7 +42,6 @@ export default function RegistrationPage(){
         const numberCheck = /[0-9]/.test(value)
         const pwdLengthCheck = value.length >= 8
         const specialCharCheck = /[!@#$%^&*]/.test(value)
-        console.log(capsLetterCheck)
         setChecks({
             capsLetterCheck,
             numberCheck,

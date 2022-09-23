@@ -14,7 +14,6 @@ export default function Box(props) {
         message="Brak wolnych miejsc!"
     }
 
-    console.log(props)
     return (
         <Link to={`/events/${props.id}`} state={props.id}>
         <div className="box">  

@@ -95,7 +95,7 @@ export default function EventForm(){
                     onChange={handleChange}
                     value={eventData.Name}
                     id="Name"
-                    maxlength="100"
+                    maxLength="100"
                 />
                 <label for="StartDateTime">Data rozpoczęcia</label>
                 <input
@@ -124,7 +124,7 @@ export default function EventForm(){
                     onChange={handleChange}
                     value={eventData.Street}
                     id="Street"
-                    maxlength="50"
+                    maxLength="50"
                 />
                 <label for="City">Miasto</label>
                 <input
@@ -135,7 +135,7 @@ export default function EventForm(){
                     onChange={handleChange}
                     value={eventData.City}
                     id="City"
-                    maxlength="50"
+                    maxLength="50"
                 />
                 <label for="MaxNumberOfPlayers">Maksymalna liczba graczy</label>
                 <input

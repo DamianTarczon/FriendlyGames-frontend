@@ -1,7 +1,7 @@
 import React from "react";
-import Box from "../components/Box";
+import Box from "./Box";
 
-export default function EventsViewWithFilter(props){
+export default function EventsList(props){
     const eventBoxes = props.eventElements.map(event => (
         <Box 
         key={event.id}

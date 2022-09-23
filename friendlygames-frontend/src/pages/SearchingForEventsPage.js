@@ -1,7 +1,7 @@
 import React, {useState, useEffect } from "react";
-import SearchingCard from "../components/SearchingCard";
-import EventsWithFilterPage from "../components/EventsWithFilterPage.js";
-import Filter from "../components/Filter";
+import SearchingCard from "../components/searchingFroEventsComponents/SearchingCard";
+import EventsList from "../components/searchingFroEventsComponents/EventsList.js";
+import Filter from "../components/searchingFroEventsComponents/Filter";
 
 
 export default function Searchbar(){
@@ -135,7 +135,7 @@ export default function Searchbar(){
             </div>
             <div className="big--container">
                 <Filter value={{formData: filterData, setFormData: setFilterData}} onSubmit={filterSubmit} />
-                { eventsData.length !== 0 ? (isLoaded && <EventsWithFilterPage
+                { eventsData.length !== 0 ? (isLoaded && <EventsList
                     eventElements={eventsData}
                 />) : <div className="event--notFound">Nie znaleziono wydarzeń dla wybranych parametrów :(</div>}
             </div>

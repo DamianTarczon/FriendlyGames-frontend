@@ -321,8 +321,6 @@ body {
 }
 
 .eventForm {
-  /* background-color: #f3eded; */
-  /* background-color: #F0F8FF; */
   background-color: #2B355A;
   color: white;
   font-size: 22px;
@@ -365,8 +363,6 @@ body {
 
 .form--submit {
   background-color: #d6c9c9;
-  /* background-color: #2B355A; */
-  /* color: white; */
   border: none;
   border-radius: 10px;
   box-shadow: 0px 0px 2px 2px #d6c9c9;
@@ -380,13 +376,23 @@ body {
 
 /* EventPage Start (1 class are in EventForm) */
 .eventPage--div {
-  /* background-color: #f3eded; */
   background-color: #F0F8FF;
   color: #2B355A;
   width: 60%;
   padding: 50px;
   border-radius: 10px;
   box-shadow: 5px 5px 15px -1px rgba(0,0,0,0.75);
+}
+
+.fa{
+  float: right;
+  font-size: 40px;
+  margin-top: -30px;
+}
+
+.fa:hover {
+  color: red;
+  cursor: pointer;
 }
 
 .event--header {
