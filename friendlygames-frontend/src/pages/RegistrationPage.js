@@ -16,7 +16,7 @@ export default function RegistrationPage(){
         capsLetterCheck: false,
         numberCheck: false,
         pwdLengthCheck: false,
-        specialCharCheck: false,
+        specialCharCheck: false
     })
 
     function handleChange(event) {

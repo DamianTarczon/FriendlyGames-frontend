@@ -14,6 +14,7 @@ export default function Box(props) {
         message="Brak wolnych miejsc!"
     }
 
+    console.log(props)
     return (
         <Link to={`/events/${props.id}`} state={props.id}>
         <div className="box">  
@@ -21,10 +22,13 @@ export default function Box(props) {
                 <img src={`../images/${props.eventCategory.imageForBoxWithEventInfo}`} alt="img" className="box--img"/>
             </div>
             <div className="box--data">
-                <p>{date[0]} {date[1]}</p>
-                <p>Lokalizacja:</p>
-                <p className="box--location">{props.street} {props.city}</p>
+                <div className="box--title"><h3>{props.name}</h3></div>
+                <p className="box--date">{date[0]}, {date[1].slice(0,5)}</p>
+                <p className="box--location">{props.street}, {props.city}</p>
+                <div className="box--placesWithPrice">
                 <p className="box--placesLeft">{message}</p>
+                <p className="box--price">{props.priceForEvent} zł</p>
+                </div>
             </div>
         </div>
         </Link>

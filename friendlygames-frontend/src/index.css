@@ -278,7 +278,7 @@ body {
 .box--data {
   float: left;
   margin-left: 10px;
-  width: 55%;
+  width: 65%;
 }
 
 .box--img {
@@ -297,14 +297,22 @@ body {
   font-size: x-large;
 }
 
-.box--location {
+.box--date {
+  margin-top: 12%;
+}
+
+.box--placesWithPrice {
+  display: flex;
   margin-top: -5%;
 }
 
 .box--placesLeft {
   font-size: 18px;
-  margin-top: 15%;
-  margin-bottom: -10%;
+  margin-right: auto;
+}
+
+.box--price {
+  font-size: 18px;
 }
 /* EventsViewWithFilter END */
 
