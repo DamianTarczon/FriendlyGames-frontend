@@ -9,7 +9,7 @@ export default function Searchbar(){
     const [firstIndexOfCardToShow, setFirstIndexOfCardToShow] = useState(0)
     const [lastIndexOfCardToShow, setLastIndexOfCardToShow] = useState(7)
 
-    const [categoryId, setCategoryId] = useState({})
+    const [categoryId, setCategoryId] = useState(null)
 
     const [eventsData, setEventsData] = useState({})
     const [isLoaded, setIsLoaded] = useState(false)
@@ -20,8 +20,7 @@ export default function Searchbar(){
             levelIds: new Set(),
             surfaceIds: new Set(),
             surroundingIds: new Set(),
-            isFree: false,
-            isPaid: false
+            payable: ""
         }
     )
 
@@ -36,16 +35,21 @@ export default function Searchbar(){
     //function that is fetching data from database with filter requests
     function filterSubmit(event){
         event.preventDefault()
-        var levelIdsString = `levelIds=${addIdsAsString(filterData.levelIds).slice(0,-1)}`
-        var surfaceIdsString = `surfaceIds=${addIdsAsString(filterData.surfaceIds).slice(0,-1)}`
-        var surroundingIdsString = `surroundingIds=${addIdsAsString(filterData.surroundingIds).slice(0,-1)}`
-        var string = `https://localhost:7089/api/Events?categoryId=${categoryId}
-        &${levelIdsString}
-        &${surfaceIdsString}
-        &${surroundingIdsString}
-        &isFree=${filterData.isFree}
-        &isPaid=${filterData.isPaid}`
+        let levelIdsString = (filterData.levelIds.size !== 0) ? `levelCategoryIds=${addIdsAsString(filterData.levelIds).slice(0,-1)}` : ""
+        let surfaceIdsString = (filterData.surfaceIds.size !== 0) ? `surfaceCategoryIds=${addIdsAsString(filterData.surfaceIds).slice(0,-1)}` : ""
+        let surroundingIdsString = (filterData.surroundingIds.size !== 0) ? `surroundingCategoryIds=${addIdsAsString(filterData.surroundingIds).slice(0,-1)}` : ""
+        let categoryIdString = (categoryId !== null) ? `categoryId=${categoryId}` : ""
+        let payableString = (filterData.payable !== "") ? `payable=${filterData.payable}` : ""
 
+        let stringTable = [categoryIdString, levelIdsString, surfaceIdsString, surroundingIdsString, payableString]
+        let string = stringTable.filter(it => it !== "").join("&")
+
+        async function fetchData() {
+            await fetch(`https://localhost:7089/api/Events?${string}`)
+                .then(res => res.json())
+                .then(data => setEventsData(data))
+            }
+        fetchData();   
     }
 
     //state for data for searchbar

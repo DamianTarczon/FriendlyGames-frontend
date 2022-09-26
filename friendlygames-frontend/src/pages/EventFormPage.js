@@ -68,6 +68,8 @@ export default function EventForm(){
 
     const handleSubmit = (event) => {
         event.preventDefault();
+        console.log(token)
+        console.log(eventData)
         //set user id for event
         eventData.ApiUserId = userData.id
         const requestOptions = {
@@ -79,6 +81,7 @@ export default function EventForm(){
             },
             body: JSON.stringify(eventData)
         };
+        console.log(requestOptions)
         fetch('https://localhost:7089/api/Events', requestOptions)
         navigate("/events")
     }

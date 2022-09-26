@@ -5,7 +5,7 @@ export default function Filter(props) {
     const setFormData = props.value.setFormData
 
     function handleChange(event){
-        const {name, checked, id} = event.target
+        const {name, checked, id, value} = event.target
         let levelIds = formData.levelIds
         let surfaceIds = formData.surfaceIds
         let surroundingIds = formData.surroundingIds
@@ -30,16 +30,17 @@ export default function Filter(props) {
                 surroundingIds.delete(id)
             }
         }
-        
+
         setFormData(prevFormData => {
             return {
                 ...prevFormData,
-                [name]: (name === "isFree" || name === "isPaid") ? checked : 
+                [name]: name === "payable" ? value : 
                 (name === "levelIds") ? levelIds : 
                 (name === "surfaceIds") ? surfaceIds : surroundingIds
             }
         })
     }
+
 
 return (
     <form className="filter--div" onSubmit={props.onSubmit}>
@@ -153,7 +154,7 @@ return (
                 onChange={handleChange}
                 name="surroundingIds"
             />
-            <label htmlFor="1">Na zewnątrz</label>
+            <label htmlFor="1">Wewnątrz</label>
             <br />
             <input 
                 type="checkbox" 
@@ -162,27 +163,29 @@ return (
                 onChange={handleChange}
                 name="surroundingIds"
             />
-            <label htmlFor="2">Wewnątrz</label>
+            <label htmlFor="2">Na zewnątrz</label>
             <br />
             <br />
         </div>
         <div className="filter--price">
             <h4>Cena</h4>
             <input 
-                type="checkbox" 
+                type="radio" 
                 id="isFree" 
-                checked={formData.isFree}
+                checked={formData.payable === "free"}
                 onChange={handleChange}
-                name="isFree"
+                name="payable"
+                value="free"
             />
             <label htmlFor="isFree">Bezpłatne</label>
             <br />
             <input 
-                type="checkbox" 
+                type="radio" 
                 id="isPaid" 
-                checked={formData.isPaid}
+                checked={formData.payable === "paid"}
                 onChange={handleChange}
-                name="isPaid"
+                name="payable"
+                value="paid"
             />
             <label htmlFor="isPaid">Płatne</label>
             <br />
