@@ -10,6 +10,7 @@ export default function EventPage(){
     const [token, setToken] = useState(null)
     const [data, setData] = useState({})
     const [isDataLoaded, setIsDataLoaded] = useState(false)
+    const [isUserRegistered, setIsUserRegistered] = useState(false)
     const navigate = useNavigate()
 
     useEffect(() => {
@@ -18,11 +19,25 @@ export default function EventPage(){
         async function fetchData() {
         await fetch(`https://localhost:7089/api/Events/${eventId}`)
             .then(res => res.json())
-            .then(testData => setData(testData))
-            setIsDataLoaded(true);
+            .then(data => setData(data))
+            setIsDataLoaded(true)
         }
         fetchData();
     }, []);
+
+    useEffect(() => {
+        if(data.registrations){
+            data.registrations.forEach(element => {
+                if(element.apiUserId === userData.id){
+                    setIsUserRegistered(false)
+                }
+            });
+        }
+        else {
+            setIsUserRegistered(true)
+        }
+    }, [data])
+
 
     async function handleClick(){
         const headers = {
@@ -36,6 +51,27 @@ export default function EventPage(){
         await fetch(`https://localhost:7089/api/Events/${data.id}`, headers)
         navigate("/events")
     }
+
+    async function handleJoin(){
+        const registartionData = {
+            EventId: data.id,
+            ApiUserId: userData.id
+        }
+        const headers = {
+            method: 'POST',
+            headers: { 
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`,
+                'Credentials': 'include'
+            },
+            body: JSON.stringify(registartionData)
+        };
+        console.log(headers)
+        await fetch('https://localhost:7089/api/Registration', headers)
+        window.location.reload(false);
+    }
+
+    
     
     return (
         <>
@@ -43,6 +79,7 @@ export default function EventPage(){
         <div className="eventPage">
             <div className="eventPage--div">
                 {data && userData && (data.apiUserId === userData.id ? <i className="fa fa-trash" onClick={handleClick}></i> : null)}
+                {data && userData && (data.apiUserId !== userData.id) && isUserRegistered ? <button className="event--joinButton" onClick={handleJoin}>Dołącz</button> : null}
                 <h1 className="event--header">{data.name}</h1>
                 <div className="event--info">
                     <h5 className="event--h5">Wydarzenie</h5>

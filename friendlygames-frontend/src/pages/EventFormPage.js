@@ -11,6 +11,20 @@ export default function EventForm(){
     const [levelCategory, setLevelCategory] = useState(null)
     const [surfaceCategory, setSurfaceCategory] = useState(null)
     const [surroundingCategory, setSurroundingCategory] = useState(null)
+    const [eventData, setEventData] = useState({
+        Name: "",
+        ApiUserId: "",
+        StartDateTime: "",
+        EndDateTime: "",
+        Street: "",
+        City: "",
+        MaxNumberOfPlayers: "",
+        PriceForEvent: 0,
+        EventCategoryId: "",
+        LevelCategoryId: "",
+        SurfaceCategoryId: "",
+        SurroundingCategoryId: ""
+    })
 
     useEffect(() => {
         setToken(localStorage.getItem('token'))
@@ -43,21 +57,6 @@ export default function EventForm(){
         return optionsElements
     }
     
-    const [eventData, setEventData] = useState({
-        Name: "",
-        ApiUserId: "",
-        StartDateTime: "",
-        EndDateTime: "",
-        Street: "",
-        City: "",
-        MaxNumberOfPlayers: "",
-        PriceForEvent: 0,
-        EventCategoryId: "",
-        LevelCategoryId: "",
-        SurfaceCategoryId: "",
-        SurroundingCategoryId: ""
-    })
-
     function handleChange(event){
         const {name, value} = event.target
         setEventData(prevEventData => ({

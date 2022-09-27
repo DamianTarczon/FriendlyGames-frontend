@@ -394,6 +394,23 @@ body {
   cursor: pointer;
 }
 
+.event--joinButton{
+  float: right;
+  height: 40px;
+  width: 80px;
+  font-size: 20px;
+  margin-top: -30px;
+  color: white;
+  background-color: #2B355A;
+  border-radius: 10px;
+  border: none;
+}
+
+.event--joinButton:hover {
+  background-color: green;
+  cursor: pointer;
+}
+
 .event--header {
   text-align: center;
 }
