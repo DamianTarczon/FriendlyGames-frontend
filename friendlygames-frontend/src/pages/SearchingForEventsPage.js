@@ -3,7 +3,6 @@ import SearchingCard from "../components/searchingFroEventsComponents/SearchingC
 import EventsList from "../components/searchingFroEventsComponents/EventsList.js";
 import Filter from "../components/searchingFroEventsComponents/Filter";
 
-
 export default function Searchbar(){
     //initializing first and last index of pictures that will be displayed on the screen
     const [firstIndexOfCardToShow, setFirstIndexOfCardToShow] = useState(0)
