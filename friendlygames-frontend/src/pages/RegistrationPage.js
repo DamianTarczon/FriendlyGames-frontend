@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom"
 import PWDRequisite from "../passwordRequirements/PWDRequisite";
 
 export default function RegistrationPage(){
@@ -18,6 +19,7 @@ export default function RegistrationPage(){
         pwdLengthCheck: false,
         specialCharCheck: false
     })
+    const navigate = useNavigate()
 
     function handleChange(event) {
         setRegisterData(prevFormData => {
@@ -64,6 +66,7 @@ export default function RegistrationPage(){
             body: JSON.stringify(registerData)
         };
         fetch('https://localhost:7089/api/Users/register', userData)
+        .finally(navigate("/login"))
     }
 
     return (

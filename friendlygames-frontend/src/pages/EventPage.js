@@ -66,7 +66,6 @@ export default function EventPage(){
             },
             body: JSON.stringify(registartionData)
         };
-        console.log(headers)
         await fetch('https://localhost:7089/api/Registration', headers)
         window.location.reload(false);
     }
