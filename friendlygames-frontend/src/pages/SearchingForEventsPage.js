@@ -2,6 +2,7 @@ import React, {useState, useEffect } from "react";
 import SearchingCard from "../components/searchingFroEventsComponents/SearchingCard";
 import EventsList from "../components/searchingFroEventsComponents/EventsList.js";
 import Filter from "../components/searchingFroEventsComponents/Filter";
+import { webAPIUrl } from "../apiUrl/WebAPIUrl";
 
 export default function Searchbar(){
     //initializing first and last index of pictures that will be displayed on the screen
@@ -44,7 +45,7 @@ export default function Searchbar(){
         let string = stringTable.filter(it => it !== "").join("&")
 
         async function fetchData() {
-            await fetch(`https://localhost:7089/api/Events?${string}`)
+            await fetch(`${webAPIUrl}/Events?${string}`)
                 .then(res => res.json())
                 .then(data => setEventsData(data))
             }
@@ -98,14 +99,14 @@ export default function Searchbar(){
     //fetchowanie danych o eventach i kategoriach
     useEffect(() => {
         async function fetchData() {
-            await fetch("https://localhost:7089/api/Events")
+            await fetch(`${webAPIUrl}/Events`)
                 .then(res => res.json())
                 .then(data => setEventsData(data))
                 setIsLoaded(true);
         }
 
         async function getEventCategoryData() {
-            await fetch("https://localhost:7089/api/Categories/eventCategory")
+            await fetch(`${webAPIUrl}/Categories/eventCategory`)
                 .then(res => res.json())
                 .then(data => setEventCategoryData(data))
                 setIsEventCategoryDataLoaded(true);
@@ -119,7 +120,7 @@ export default function Searchbar(){
     function handleClick(id){
         setCategoryId(id)
         async function fetchData() {
-        await fetch(`https://localhost:7089/api/Events?categoryId=${id}`)
+        await fetch(`${webAPIUrl}/Events?categoryId=${id}`)
             .then(res => res.json())
             .then(data => setEventsData(data))
             setIsLoaded(true);

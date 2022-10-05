@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom"
 import PWDRequisite from "../passwordRequirements/PWDRequisite";
+import { webAPIUrl } from "../apiUrl/WebAPIUrl";
 
 export default function RegistrationPage(){
     const [error, setError] = useState("")
@@ -65,7 +66,7 @@ export default function RegistrationPage(){
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(registerData)
         };
-        fetch('https://localhost:7089/api/Users/register', userData)
+        fetch(`${webAPIUrl}/Users/register`, userData)
         .finally(navigate("/login"))
     }
 

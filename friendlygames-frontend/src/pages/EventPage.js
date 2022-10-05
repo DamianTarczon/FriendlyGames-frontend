@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom"
 import { useJsApiLoader } from "@react-google-maps/api"
 import Map from "../components/Map.js";
+import { webAPIUrl } from "../apiUrl/WebAPIUrl"
 
 export default function EventPage(){
     const { isLoaded } = useJsApiLoader({googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY})
@@ -17,7 +18,7 @@ export default function EventPage(){
         setToken(localStorage.getItem('token'))
         setUserData(JSON.parse(localStorage.getItem('user')))
         async function fetchData() {
-        await fetch(`https://localhost:7089/api/Events/${eventId}`)
+        await fetch(`${webAPIUrl}/Events/${eventId}`)
             .then(res => res.json())
             .then(data => setData(data))
             setIsDataLoaded(true)
@@ -48,7 +49,7 @@ export default function EventPage(){
                 'Credentials': 'include'
             }
         };
-        await fetch(`https://localhost:7089/api/Events/${data.id}`, headers)
+        await fetch(`${webAPIUrl}/Events/${data.id}`, headers)
         navigate("/events")
     }
 
@@ -66,7 +67,7 @@ export default function EventPage(){
             },
             body: JSON.stringify(registartionData)
         };
-        await fetch('https://localhost:7089/api/Registration', headers)
+        await fetch(`${webAPIUrl}/Registration`, headers)
         window.location.reload(false);
     }
 

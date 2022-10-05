@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from "react";
 import Option from "../components/Option";
 import { useNavigate } from "react-router-dom";
+import { webAPIUrl } from "../apiUrl/WebAPIUrl";
 
 export default function EventForm(){
     const navigate = useNavigate()
@@ -30,7 +31,7 @@ export default function EventForm(){
         setToken(localStorage.getItem('token'))
         setUserData(JSON.parse(localStorage.getItem('user')))
         async function categories() {
-        await fetch("https://localhost:7089/api/Categories")
+        await fetch(`${webAPIUrl}/Categories`)
             .then(res => res.json())
             .then(data => setCategories(data));
         }
@@ -81,8 +82,9 @@ export default function EventForm(){
             body: JSON.stringify(eventData)
         };
         console.log(requestOptions)
-        fetch('https://localhost:7089/api/Events', requestOptions)
-        navigate("/events")
+        fetch(`${webAPIUrl}/Events`, requestOptions)
+        .finally(navigate("/events"))
+        
     }
 
     return (

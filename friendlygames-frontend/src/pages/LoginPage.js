@@ -1,6 +1,7 @@
 import React, { useState, useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { UserContext } from "../components/UserContext";
+import { webAPIUrl } from "../apiUrl/WebAPIUrl";
 
 export default function LoginPage(){
     
@@ -40,7 +41,7 @@ export default function LoginPage(){
             }
         };
         async function fetchData() {
-            await fetch('https://localhost:7089/api/Users/GetUser', headers)
+            await fetch(`${webAPIUrl}/Users/GetUser`, headers)
             .then(res => res.json())
             .then(data => setUserDataFromApi(data))
         }
@@ -66,7 +67,7 @@ export default function LoginPage(){
             headers: { 'Content-Type': 'application/json'},
             body: JSON.stringify(loginData)
         };
-        await fetch('https://localhost:7089/api/Users/login', userData)
+        await fetch(`${webAPIUrl}/Users/login`, userData)
         .then(res => {
             if(res.status === 401){
                 throw Error("Zły adres emial lub hasło")
