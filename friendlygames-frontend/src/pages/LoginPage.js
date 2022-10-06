@@ -67,21 +67,22 @@ export default function LoginPage(){
             headers: { 'Content-Type': 'application/json'},
             body: JSON.stringify(loginData)
         };
-        await fetch(`${webAPIUrl}/Users/login`, userData)
-        .then(res => {
+
+        try {
+            const res = await fetch(`${webAPIUrl}/Users/login`, userData)
+            const data = await res.json()
             if(res.status === 401){
-                throw Error("Zły adres emial lub hasło")
+                throw Error(data)
             }
-            return res.json()})
-        .then(data => localStorage.setItem('token', data.token))
-        .catch(err => {
+            localStorage.setItem('token', data.token)
+            setToken(localStorage.getItem('token'))
+        }
+        catch(err){
             if(err.message === "Failed to fetch"){
                 return setError("Błąd serwera. Spróbuj później.")
             }
             setError(err.message)
-        })
-        //set token state 
-        setToken(localStorage.getItem('token'))
+        }      
     }
 
     return (
