@@ -30,7 +30,6 @@ export default function LoginPage(){
         }   
     }, [userDataFromApi])
 
-
     useEffect(() => {
         const headers = {
             method: 'GET',
@@ -47,7 +46,6 @@ export default function LoginPage(){
         }
         fetchData()
     }, [token])
-
 
     function handleChange(event) {
         setLoginData(prevFormData => {

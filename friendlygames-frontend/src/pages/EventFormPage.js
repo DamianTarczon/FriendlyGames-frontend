@@ -84,7 +84,6 @@ export default function EventForm(){
         console.log(requestOptions)
         fetch(`${webAPIUrl}/Events`, requestOptions)
         .finally(navigate("/events"))
-        
     }
 
     return (
