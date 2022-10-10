@@ -15,7 +15,7 @@ export default function Box(props) {
     }
 
     return (
-        <Link to={`/events/${props.id}`} state={props.id}>
+        <Link to={`/events/${props.id}`}>
         <div className="box">  
             <div className="box--imgDiv">
                 <img src={`../images/${props.eventCategory.imageForBoxWithEventInfo}`} alt="img" className="box--img"/>

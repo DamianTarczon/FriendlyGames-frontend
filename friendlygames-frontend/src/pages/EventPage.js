@@ -6,7 +6,7 @@ import { webAPIUrl } from "../apiUrl/WebAPIUrl"
 
 export default function EventPage(){
     const { isLoaded } = useJsApiLoader({googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY})
-    const eventId = useLocation().state
+    const eventPathNameWithId = useLocation().pathname
     const [userData, setUserData] = useState(null)
     const [token, setToken] = useState(null)
     const [data, setData] = useState({})
@@ -18,7 +18,7 @@ export default function EventPage(){
         setToken(localStorage.getItem('token'))
         setUserData(JSON.parse(localStorage.getItem('user')))
         async function fetchData() {
-        await fetch(`${webAPIUrl}/Events/${eventId}`)
+        await fetch(`${webAPIUrl}${eventPathNameWithId}`)
             .then(res => res.json())
             .then(data => setData(data))
             setIsDataLoaded(true)

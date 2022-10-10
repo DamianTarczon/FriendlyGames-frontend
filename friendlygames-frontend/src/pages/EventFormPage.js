@@ -66,10 +66,8 @@ export default function EventForm(){
         }))
     }
 
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
         event.preventDefault();
-        console.log(token)
-        console.log(eventData)
         //set user id for event
         eventData.ApiUserId = userData.id
         const requestOptions = {
@@ -81,10 +79,12 @@ export default function EventForm(){
             },
             body: JSON.stringify(eventData)
         };
-        console.log(requestOptions)
-        fetch(`${webAPIUrl}/Events`, requestOptions)
-        .finally(navigate("/events"))
-        
+        const res = await fetch(`${webAPIUrl}/Events`, requestOptions)
+        const data = await res.json()
+        if(data){
+            console.log(data)
+            navigate(`/events/${data.id}`)
+        }
     }
 
     return (

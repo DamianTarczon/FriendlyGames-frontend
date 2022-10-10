@@ -275,6 +275,10 @@ body {
   width: 65%;
 }
 
+.box--title {
+  min-height: 70px;
+}
+
 .box--img {
   width: 100%;
 }
@@ -289,10 +293,6 @@ body {
   color: lightgray;
   margin-left: 25%;
   font-size: x-large;
-}
-
-.box--date {
-  margin-top: 12%;
 }
 
 .box--placesWithPrice {
