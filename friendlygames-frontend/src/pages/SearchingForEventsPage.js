@@ -5,7 +5,6 @@ import Filter from "../components/searchingFroEventsComponents/Filter";
 import { webAPIUrl } from "../apiUrl/WebAPIUrl";
 
 export default function Searchbar(){
-    //initializing first and last index of pictures that will be displayed on the screen
     const [firstIndexOfCardToShow, setFirstIndexOfCardToShow] = useState(0)
     const [lastIndexOfCardToShow, setLastIndexOfCardToShow] = useState(7)
 
@@ -14,7 +13,6 @@ export default function Searchbar(){
     const [eventsData, setEventsData] = useState({})
     const [isLoaded, setIsLoaded] = useState(false)
 
-    //state with data for filter component
     const [filterData, setFilterData] = useState(
         {
             levelIds: new Set(),
@@ -32,7 +30,6 @@ export default function Searchbar(){
         return string
     }
 
-    //function that is fetching data from database with filter requests
     function filterSubmit(event){
         event.preventDefault()
         let levelIdsString = (filterData.levelIds.size !== 0) ? `levelCategoryIds=${addIdsAsString(filterData.levelIds).slice(0,-1)}` : ""
@@ -52,11 +49,9 @@ export default function Searchbar(){
         fetchData();   
     }
 
-    //state for data for searchbar
     const [eventCategoryData, setEventCategoryData] = useState({})
     const [isEventCategoryDataLoaded, setIsEventCategoryDataLoaded] = useState(false)
 
-    //state for data for searchbar with categoryIds
     const cards = getDataForSearchbar(firstIndexOfCardToShow, lastIndexOfCardToShow)
     const [cardsData, setCardsData] = useState(cards)
 
@@ -76,7 +71,6 @@ export default function Searchbar(){
         }
     }
     
-    //monitorowanie zmiany
     useEffect(() => {
         var newCards = getDataForSearchbar(firstIndexOfCardToShow, lastIndexOfCardToShow)
         setCardsData(newCards)
@@ -96,7 +90,6 @@ export default function Searchbar(){
         }
     }
 
-    //fetchowanie danych o eventach i kategoriach
     useEffect(() => {
         async function fetchData() {
             await fetch(`${webAPIUrl}/Events`)
@@ -116,7 +109,6 @@ export default function Searchbar(){
         fetchData();
     }, []);
 
-    //fetchowanie danych o eventach z odpowiednim category id
     function handleClick(id){
         setCategoryId(id)
         async function fetchData() {
