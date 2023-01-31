@@ -57,13 +57,14 @@ export default function Searchbar(){
 
     function getDataForSearchbar(firstIndex, lastIndex){
         if(isEventCategoryDataLoaded){
-            const searchbarElements = eventCategoryData.slice(firstIndex,lastIndex).map(item => {
+            const searchbarElements = eventCategoryData.map(item => {
                 return (
                     <SearchingCard 
-                    key={item.id} 
+                    key={item.id}
+                    id={item.id}
                     img={item.imageForSearchBar} 
                     title={item.name} 
-                    handleClick={() => handleClick(item.id)} 
+                    // handleClick={() => handleClick(item.id)} 
                     />
                 )
             })
@@ -110,6 +111,7 @@ export default function Searchbar(){
     }, []);
 
     function handleClick(id){
+        if(!id) return;
         setCategoryId(id)
         async function fetchData() {
         await fetch(`${webAPIUrl}/Events?categoryId=${id}`)
@@ -120,12 +122,54 @@ export default function Searchbar(){
         fetchData();    
     }
 
+    const [isMouseDown, setIsMouseDown] = useState(false);
+  const [startX, setStartX] = useState(0);
+  const [prevPercentage, setPrevPercentage] = useState(0);
+  const [nextPercentage, setNextPercentage] = useState(0);
+
+
+  function handlePointerDown(e){
+    setIsMouseDown(true);
+    // setStartX(e.pageX - e.currentTarget.offsetLeft);
+    // setScrollLeft(e.currentTarget.offsetLeft);
+    setStartX(e.clientX);
+    e.target.setPointerCapture(e.pointerId);
+  }
+
+  function handlePointerUp(e){
+    if(startX - e.clientX < 5 && startX - e.clientX > -5){
+        handleClick(e.target.id);
+      }
+    setIsMouseDown(false);
+    setPrevPercentage(nextPercentage);
+    e.target.releasePointerCapture(e.pointerId);
+  }
+
+
+  function handlePointerMove(e){
+    if(!isMouseDown) return;
+    e.preventDefault();
+    // const x = e.pageX - e.currentTarget.offsetLeft;
+    // const walk = (x - startX); //scroll-fast
+    // e.currentTarget.scrollLeft = scrollLeft - walk;
+    const mouseDelta = startX - e.clientX;
+    const maxDelta = e.currentTarget.offsetWidth / 2;
+
+    const percentage = (mouseDelta / maxDelta) * -100;
+    const nextPercentageUnconstrained = prevPercentage + percentage;
+    setNextPercentage(Math.max(Math.min(nextPercentageUnconstrained, 0), -100))
+
+    e.currentTarget.style.transform = `translate(${nextPercentage}%, 0%)`;
+  }
+
     return (
         <div>
             <div className="searchbar">
                 <button type="button" className="left--arrow" onClick={previous}><img src="/images/left.png" className="left--arrow--img" alt="img"/></button>
                 <div className="searchingCard">
-                    {cardsData}
+                    <div className="category--cards--container" onPointerDown={handlePointerDown} onPointerUp={handlePointerUp} onPointerMove={handlePointerMove}>
+                        {cardsData}
+                    </div>
                 </div>
                 <button type="button" className="right--arrow" onClick={next}><img src="/images/right.png" className="right--arrow--img" alt="img"/></button>
             </div>

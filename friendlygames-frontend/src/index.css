@@ -54,41 +54,40 @@ body {
 /* Searching bar for events START */
 .searchbar {
   display: flex;
+  justify-content: center;
   align-items: center;
   height: 150px;
   width: 100%;
+  gap: 50px;
 }
 
 .left--arrow, .right--arrow {
   height: 45%;
   width: 75px;
-  background-color: white;
-  border-radius: 50px;
-  border: 2px solid dimgray;
   cursor: pointer;
 }
 
-.left--arrow{
-  margin-left: 5%;
-}
-
-.right--arrow{
-  margin-right: 5%;
-}
-
-.left--arrow:hover, .right--arrow:hover{
-  box-shadow: 5px 5px 15px -1px rgba(0,0,0,0.75);
-}
 
 .searchingCard {
-  width: 100%;
+  width: 55%;
   text-align: center;
   height: 100%;
+  border-radius: 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+.category--cards--container{
+  display: flex;
+  height: 98%;
+  gap: 10px;
+  position: absolute;
+  transform: translate(0%, 0%);
 }
 
 .card--image{
   margin-top: 35px;
-  width: 60%;
+  width: 50px;
 }
 
 .left--arrow--img, .right--arrow--img {
@@ -97,18 +96,21 @@ body {
 
 .card--container{
   align-items: center;
-  width: 6%;
+  width: 150px;
+  /* border: 1px solid black; */
   height: 100%;
-  display: inline-block;
-  padding-right: 50px;
-  padding-left: 50px;
+  background-color: aquamarine;
+  /* display: inline-block; */
+  padding-right: 25px;
+  padding-left: 25px;
 }
 
 .card--container:hover {
   border-radius: 15px;
   box-shadow: 5px 5px 15px -1px rgba(0,0,0,0.75);
-  cursor: pointer;
+  cursor: grab;
 }
+
 /* Searching bar for events END */
 
 /*Footer START*/ 
