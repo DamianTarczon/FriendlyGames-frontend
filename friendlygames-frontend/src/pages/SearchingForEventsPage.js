@@ -155,9 +155,13 @@ export default function Searchbar(){
     const mouseDelta = startX - e.clientX;
     const maxDelta = e.currentTarget.offsetWidth / 2;
 
+
+    // console.log("child", e.currentTarget.offsetWidth);
+    // console.log((e.currentTarget.parentNode.offsetWidth/e.currentTarget.offsetWidth) * -100)
+
     const percentage = (mouseDelta / maxDelta) * -100;
     const nextPercentageUnconstrained = prevPercentage + percentage;
-    setNextPercentage(Math.max(Math.min(nextPercentageUnconstrained, 0), -100))
+    setNextPercentage(Math.max(Math.min(nextPercentageUnconstrained, 0), -100 + (e.currentTarget.parentNode.offsetWidth * 100) / e.currentTarget.offsetWidth));
 
     e.currentTarget.style.transform = `translate(${nextPercentage}%, 0%)`;
   }
@@ -165,13 +169,13 @@ export default function Searchbar(){
     return (
         <div>
             <div className="searchbar">
-                <button type="button" className="left--arrow" onClick={previous}><img src="/images/left.png" className="left--arrow--img" alt="img"/></button>
+                <img src="/images/left.png" className="left--arrow--img" alt="img"/>
                 <div className="searchingCard">
                     <div className="category--cards--container" onPointerDown={handlePointerDown} onPointerUp={handlePointerUp} onPointerMove={handlePointerMove}>
                         {cardsData}
                     </div>
                 </div>
-                <button type="button" className="right--arrow" onClick={next}><img src="/images/right.png" className="right--arrow--img" alt="img"/></button>
+                <img src="/images/right.png" className="right--arrow--img" alt="img"/>
             </div>
             <div className="big--container">
                 <Filter value={{formData: filterData, setFormData: setFilterData}} onSubmit={filterSubmit} />
