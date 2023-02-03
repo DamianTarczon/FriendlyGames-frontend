@@ -134,6 +134,7 @@ export default function Searchbar(){
     // setScrollLeft(e.currentTarget.offsetLeft);
     setStartX(e.clientX);
     e.target.setPointerCapture(e.pointerId);
+    e.currentTarget.classList.add("grabed");
   }
 
   function handlePointerUp(e){
@@ -143,21 +144,16 @@ export default function Searchbar(){
     setIsMouseDown(false);
     setPrevPercentage(nextPercentage);
     e.target.releasePointerCapture(e.pointerId);
+    e.currentTarget.classList.remove("grabed");
   }
 
 
   function handlePointerMove(e){
     if(!isMouseDown) return;
     e.preventDefault();
-    // const x = e.pageX - e.currentTarget.offsetLeft;
-    // const walk = (x - startX); //scroll-fast
-    // e.currentTarget.scrollLeft = scrollLeft - walk;
+
     const mouseDelta = startX - e.clientX;
-    const maxDelta = e.currentTarget.offsetWidth / 2;
-
-
-    // console.log("child", e.currentTarget.offsetWidth);
-    // console.log((e.currentTarget.parentNode.offsetWidth/e.currentTarget.offsetWidth) * -100)
+    const maxDelta = e.currentTarget.offsetWidth / 1.5;
 
     const percentage = (mouseDelta / maxDelta) * -100;
     const nextPercentageUnconstrained = prevPercentage + percentage;
@@ -169,13 +165,13 @@ export default function Searchbar(){
     return (
         <div>
             <div className="searchbar">
-                <img src="/images/left.png" className="left--arrow--img" alt="img"/>
+                {/* <img src="/images/left.png" className="left--arrow--img" alt="img"/> */}
                 <div className="searchingCard">
                     <div className="category--cards--container" onPointerDown={handlePointerDown} onPointerUp={handlePointerUp} onPointerMove={handlePointerMove}>
                         {cardsData}
                     </div>
                 </div>
-                <img src="/images/right.png" className="right--arrow--img" alt="img"/>
+                {/* <img src="/images/right.png" className="right--arrow--img" alt="img"/> */}
             </div>
             <div className="big--container">
                 <Filter value={{formData: filterData, setFormData: setFilterData}} onSubmit={filterSubmit} />

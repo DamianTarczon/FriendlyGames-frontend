@@ -35,7 +35,7 @@ export default function Navbar(){
                 </> : 
                 <>
                 <CustomLink to="/logout">Wyloguj się</CustomLink>
-                <p>Witaj {userData.firstName}</p>
+                <span>Witaj {userData.firstName}</span>
                 </>}
             </ul>
         </nav>
